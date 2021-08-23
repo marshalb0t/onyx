@@ -10,7 +10,7 @@ module.exports = {
         usage: "[ mention | ID]",
         accessableby: "Administrator, Owner"
     ,
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("❌ You Do Not Have Permissions To Add Money! - [ADMINISTRATOR]");
         if (!args[0]) return message.channel.send("**Please Enter A User!**")
 
