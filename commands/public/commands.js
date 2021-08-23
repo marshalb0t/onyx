@@ -16,7 +16,6 @@ module.exports = {
   .addField("🛠️ Moderation Commands", `\`addemoji\`, \`ban\`, \`clear\`, \`embed\`, \`hide\`, \`kick\`, \`lock\`, \`mute\`, \`role\`, \`unhide\`, \`unlock\`, \`unmute\`, \`vkick\`, \`moveroles\`, \`transferroles\`, \`roles\``) 
   .addField("😅 Fun Commands", `\`aki\`, \`emoji\`, \`fakebot\`, \`hug\`, \`kill\`, \`kiss\`, \`slap\`, \`trash\`, \`wanted\`, \`love\``)
   .addField("💰 Economy Commands", `\`profile\`, \`coins\`, \`daily\`, \`rep\`, \`pay\`, \`title\`, \`background\`, \`background-remove\``)
-  .addField("🎁 Giveway Commands", `\`gstart\`, \`gend\`, \`greroll\`, \`gsetrole\`, \`gblacklist\`, \`gcheck\``)
   .setColor('9e1c36');
     
         message.channel.send(embed)
