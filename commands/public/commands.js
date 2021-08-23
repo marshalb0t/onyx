@@ -17,7 +17,7 @@ module.exports = {
 
  \`avatar\`, \`corona\`, \`help\`, \`short\`, \`translate\`, \`user\`, \`ping\`, \`server\`, \`bot\`, \`ravatar\`
 
-  **Moderation commands**
+  **🛠️ Moderation commands**
 
  \`addemoji\`, \`aliase\`, \`ban\`, \`clear\`, \`embed\`, \`hide\`, \`kick\`, \`lock\`, \`mute\`, \`role\`, \`setlang\`, \`setprefix\`, \`toogle\`, \`unhide\`, \`unlock\`, \`unmute\`, \`vkick\`, \`moveroles\`, \`transferroles\`, \`roles\` 
 
