@@ -9,7 +9,7 @@ module.exports = {
     usage: "[username | nickname | mention | ID](optional)",
     accessableby: "everyone"
   ,
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     let user =
       message.mentions.members.first() ||
       message.guild.members.cache.get(args[0]) ||
