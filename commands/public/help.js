@@ -3,7 +3,7 @@ let prefix = "+"
 const db = require("quick.db");
  const language = "en";
 module.exports = {
-    name: "help",
+    name: "lp",
     cooldown: 5,
     run: async (client, message, args) => {
 
