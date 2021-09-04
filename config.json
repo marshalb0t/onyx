@@ -1,6 +1,6 @@
 {
   "TOKEN": "ODgyODk4MzU2NTM4NTcyODAw.YTCFKw.iez05XG8fTGcWSdxLVymjxE9hx8",
-  "database": "mongodb+srv://zezo:zezo@1a2a3a@cluster0.rxggq.mongodb.net/bot",
-  "database2": "mongodb+srv://zezo:zezo@1a2a3a@cluster0.bkep8.mongodb.net/bot"
+  "database": "mongodb+srv://kawaydeda12345:kawaydedam12345@cluster0.ckqmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "database2": "mongodb+srv://kawaydeda12345:kawaydedam12345@cluster0.ckqmr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 }
