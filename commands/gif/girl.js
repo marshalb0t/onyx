@@ -13,7 +13,7 @@ module.exports = {
         axios.get("https://api.roxza.me/v1/random?type=woman")
             .then(res => {
                 let embed = new Discord.MessageEmbed()
-                    .setDescription(`**Woman Gif**`)
+                    .setDescription(`**girl/woman Gif**`)
                     .setColor(color)
                     .setImage(res.data.url)
                     .setFooter(`${message.author.tag}`, message.author.avatarURL)
