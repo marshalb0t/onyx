@@ -1,7 +1,12 @@
 
-const Discord = require("discord.js");
+const ButtonPages = require('discord-button-pages');
+const { MessageEmbed, Discord, Client } = require('discord.js')
+const disbutpages = require("discord-embeds-pages-buttons")
+const disbut = require("discord-buttons");
+const MessageButton = require("discord-buttons");
 const db = require("quick.db")
 const language = "en"
+
 module.exports = {
     name: "help",
     description: "close all ticket in server",
@@ -17,7 +22,20 @@ module.exports = {
   .addField("😅 Fun Commands", `\`clyde\``)
   .setColor('9e1c36');
     
-        message.channel.send(embed)
+        let inv = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Invite Me') 
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot`);
+     
+      let sup = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Support Server') 
+      .setURL(`https://discord.gg/dreex`);
+
+
+      return message.channel.send(embed,{
+        button: [sup,inv],
+      });
        
     }
 
