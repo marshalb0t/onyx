@@ -1,5 +1,9 @@
-const { Client, Guild, MessageEmbed } = require("discord.js")
-
+const ButtonPages = require('discord-button-pages');
+const { MessageEmbed, Discord, Client } = require('discord.js')
+const disbutpages = require("discord-embeds-pages-buttons")
+const disbut = require("discord-buttons");
+const MessageButton = require("discord-buttons");
+const Color = "#303136";
 /**
  * 
  * @param {Client} client 
@@ -9,42 +13,39 @@ const { Client, Guild, MessageEmbed } = require("discord.js")
 
 module.exports = (client, guild) => {
  
-   const owner = new MessageEmbed()
-      .setColor(client.color)
-      .setTitle("Hello, I'm Run Beta!")
-      .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-      .addField(
-        "Information",
-        `i just joined to your server **${guild.name}**.\n\nHere is some information about myself:\n\nMy Prefix:\`.help\`\nCommands: Moderation, misc, info, fun, utility`,
-        true
-      )
-      .addField(
-        "Invite me",
-        "Add Me To Your Server By [click here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)",
-        true
-      )
-      .addField(
-        "Elop Bot",
-        "Use me and enjoy!",
-        true
-      )
-      .setTimestamp() // moment().format('LLL'),
-      .setFooter(`Enjoy`);
-   guild.owner.send(owner);
+      const embed = new MessageEmbed()
+      .setTitle("Thanks for inviting me!")
+      .setColor(Color)     
+      .addField("• Who am i? What\'s my features?", `im ${client.user.username} a discord multi-purpose bot that does \`moderation\`, \`funny\` others \`gif, pictures\` and much more features..`)
+      .addField("• Need Prefix?", `[ \`-\` ]`)
+      .addField("• Need Help?", `[ \`-help\` ]`)
+  
+    let invite = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Invite Me') 
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`);
+      let support = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Support Server') 
+      .setURL(`https://discord.gg/snow-team`);
+
+      return guild.owner.send(embed,{
+        button: [support,invite],
+      });
 
  let channel = client.channels.cache.get("994335174005366785");
 
  const joinEmbed = new MessageEmbed()
        .setColor(client.color)
-       .setTitle("New Adding Me!!")
+       .setTitle("Joined A new Server!!")
        .setThumbnail(guild.iconURL())
        .addField(
-         "Information",
+         "Guild:",
          `i just joined to here **${guild.name}**.\n\nThere is **${guild.memberCount}** members`,
          true
        )
        .addField(
-         "Owner",
+         "Owner:",
          `${guild.owner.user.tag} / ${guild.ownerID}`,
          true
        )
@@ -54,7 +55,7 @@ module.exports = (client, guild) => {
          true
        )
        .setTimestamp() // moment().format('LLL'),
-       .setFooter(`Bzhe la xom`);
+       .setFooter(`Cool`);
     channel.send(joinEmbed);
 
 }
