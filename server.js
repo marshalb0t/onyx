@@ -1196,7 +1196,7 @@ await db1.add(`messages_${message.guild.id}`, 1)
 
 
 
-const prefix = "+"
+const prefix = "-"
 
 /*
 الكود اللي يزيد الكريدت و اكس بي بالتفاعل تحت
