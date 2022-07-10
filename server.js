@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { readdirSync } = require(`fs`);
 const url = require("url");
 const path = require("path");
 const express = require("express");
