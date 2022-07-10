@@ -32,7 +32,7 @@ module.exports = (client, guild) => {
       .setFooter(`Enjoy`);
    guild.owner.send(owner);
 
- let channel = client.channels.cache.get("881956177683034153");
+ let channel = client.channels.cache.get("994335174005366785");
 
  const joinEmbed = new MessageEmbed()
        .setColor(client.color)
