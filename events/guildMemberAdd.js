@@ -1,24 +1,39 @@
-const config = require("../config.json");
-const { Database } = require("quickmongo");
-const db = new Database(config.database);
-const Discord = require("discord.js")
-const Autorole = require("../models/autorole.js")
+const ButtonPages = require('discord-button-pages');
+const { MessageEmbed, Discord, Client } = require('discord.js')
+const disbutpages = require("discord-embeds-pages-buttons")
+const disbut = require("discord-buttons");
+const MessageButton = require("discord-buttons");
+const { color } = require("../../config.json");
 
-module.exports = async (client, member) => {
-db.add(`newmembers_${member.guild.id}`, 1)
-  
-  Autorole.findOne({
-    guildID: member.guild.id
-}, async (err, autorole) => {
-    if (autorole === null) return;
-  if(autorole.toggle === 'off') return;  
+/**
+ * 
+ * @param {Client} client 
+ * @param {Guild} guild 
+ */
 
-if (!member.guild.roles.cache.find(r => r.id === `${autorole.autorole}`)) return;
-    member.roles.add(autorole.autorole, `Autorole`);
-  })
 
+module.exports = (client, guild) => {
+ 
+      let channel = client.channels.cache.get("994335071186194452");
+
+      const embed = new MessageEmbed()
+      .setTitle("Welcome To Onyx Bot Offical Server!")
+      .setColor(color)     
+      .addField("Hello:", `${member.user.tag}`)
+      .addField("Welcome To:", `${member.guild.name}`)
+      .addField("Rules:", `<#994650118584283228>`)
+      .addField("Roles:", `<#994977903961985166>`)
   
-  
-  
-  
+    let invite = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Invite Me') 
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`);
+      let support = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Support Server') 
+      .setURL(`https://discord.gg/snow-team`);
+
+      return channel.send(embed,{
+        button: [support,invite],
+      });
 }
