@@ -44,7 +44,7 @@ module.exports = (client, guild) => {
       .setDescription("**i sended this message to you cause you're the guild owner!**")
       .setColor(Color)     
       .addField("Kicked From:", `\`${guild.name}\``)
-      .addField("Invite Me:", `To ${guild.name} [With Clicking Here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)`
+      .addField("Invite Me:", `To ${guild.name} [With Clicking Here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)`)
       .addField("Support Server:", `**Join To My Server:** [With Clicking Here](https://discord.gg/onyx-bot)`)
   
      let invite = new disbut.MessageButton()
