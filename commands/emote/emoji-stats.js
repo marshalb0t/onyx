@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { color } = require("../../config.js");
+const { color } = require("../../config.json");
 
 module.exports = {
     name: "emojistats",
