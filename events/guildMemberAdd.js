@@ -1,8 +1,4 @@
-const ButtonPages = require('discord-button-pages');
 const { MessageEmbed, Discord, Client } = require('discord.js')
-const disbutpages = require("discord-embeds-pages-buttons")
-const disbut = require("discord-buttons");
-const MessageButton = require("discord-buttons");
 const { color } = require("../../config.json");
 /**
  * 
@@ -12,7 +8,6 @@ const { color } = require("../../config.json");
 
 
 module.exports = (client, guild) => {
- 
       let channel = client.channels.cache.get("994335071186194452");
 
       const embed = new MessageEmbed()
@@ -23,16 +18,6 @@ module.exports = (client, guild) => {
       .addField("Rules:", `<#994650118584283228>`)
       .addField("Roles:", `<#994977903961985166>`)
   
-    let invite = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Invite Me') 
-      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`);
-      let support = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Support Server') 
-      .setURL(`https://discord.gg/snow-team`);
-
-      return channel.send(embed,{
-        button: [support,invite],
-      });
+ 
+      return channel.send(embed);
 }
