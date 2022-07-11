@@ -41,6 +41,7 @@ module.exports = (client, guild) => {
 
        const embed = new MessageEmbed()
       .setTitle("WHY!!")
+      .setDescription(`‌**i sended this message to you cause you\'re the guild owner!**`)
       .setColor(Color)     
       .addField("Kicked From:", `\`${guild.name}\``)
       .addField("Invite Me:", `To ${guild.name} [With Clicking Here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)`
@@ -55,7 +56,7 @@ module.exports = (client, guild) => {
       .setLabel('Support Server') 
       .setURL(`https://discord.gg/onyx-bot`);
 
-      return guild.owner.send(`i send this message to you cause you\'re the guild owner!`, embed,{
+      return guild.owner.send(embed,{
         button: [support,invite],
       });
 
