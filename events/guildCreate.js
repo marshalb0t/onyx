@@ -33,14 +33,8 @@ module.exports = (client, guild) => {
         button: [support,invite],
       });
 
- const channel = guild.channels.cache.find(c => c.type === "text" && c.permissionsFor(guild.me).has("CREATE_INSTANT_INVITE"));
-let inv;
-if(channel) { const invite = await channel.createInvite({temporary: false, maxAge: '0', maxUses: '0', unique: false, reason: 'FOR SECURITY REASONS!'}).catch(error => console.log(error))
-if(invite) { inv = invite.code;
-}
-}
 
- const channel = client.guild.cache.channels.get("994335071186194452")
+ const channel = client.channels.guild.cache.get("994335071186194452")
  const joinEmbed = new MessageEmbed()
        .setColor(client.color)
        .setTitle("Joined A new Server!!")
