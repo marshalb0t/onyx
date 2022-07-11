@@ -31,7 +31,7 @@ mongoose.connect(config.database2 ,{ useNewUrlParser: true, useUnifiedTopology: 
 
 
 client.commands = new Discord.Collection();
-const Categories = ["moderation", "public", "owner", "fun", "gif", "text", "emote"];
+const Categories = ["moderation", "public", "owner", "fun", "gif", "text", "emote", "invites"];
 
 Categories.forEach(async function(Category, message) {
 fs.readdir(`./commands/${Category}`, (err, files) => {
