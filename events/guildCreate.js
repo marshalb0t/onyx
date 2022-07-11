@@ -36,7 +36,7 @@ module.exports = (client, guild) => {
 
  const channel = client.channels.guild.cache.get("994335071186194452")
  const joinEmbed = new MessageEmbed()
-       .setColor(client.color)
+       .setColor(Color)
        .setTitle("Joined A new Server!!")
        .setThumbnail(guild.iconURL())
        .addField(
