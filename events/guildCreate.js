@@ -40,13 +40,29 @@ if(invite) { inv = invite.code;
 }
 }
 
-    let chat = new Discord.MessageEmbed()
-    .setColor(Color)
-    .setURL(inv ? `https://discord.gg/${inv}` : null)
-    .setThumbnail(guild.iconURL({dynamic: true}))
-    .setFooter(`I Am In ${client.guilds.cache.size} Servers Now !`)
-    .setTitle(`Joined A Server !`)
-    .setDescription(`**Server Name**: ${guild.name}\n**Server ID**: ${guild.id}\n**Members**: ${guild.memberCount}\n**Owner**: ${guild.owner}\n**Owner ID**: ${guild.ownerID}`)
-    .setTimestamp();
-    client.channels.cache.get('994335071186194452').send(chat)
+ const channel = client.guild.cache.channels.get("994335071186194452")
+ const joinEmbed = new MessageEmbed()
+       .setColor(client.color)
+       .setTitle("Joined A new Server!!")
+       .setThumbnail(guild.iconURL())
+       .addField(
+         "Guild:",
+         `i just joined to here **${guild.name}**.\n\nThere is **${guild.memberCount}** members`,
+         true
+       )
+       .addField(
+         "Owner:",
+         `${guild.owner.user.tag} / ${guild.ownerID}`,
+         true
+       )
+       .addField(
+         "Servers",
+         `[${client.guilds.cache.size}]`,
+         true
+       )
+       .setTimestamp() // moment().format('LLL'),
+       .setFooter(`Cool`);
+    channel.send(joinEmbed);
+
+
 }
