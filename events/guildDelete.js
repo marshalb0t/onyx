@@ -57,7 +57,7 @@ module.exports = (client, guild) => {
 
       return guild.owner.send(`i send this message to you cause you\'re the guild owner!`,{
         button: [support,invite],
-        embeds: embed
+        embed: embed
       });
 
 }
