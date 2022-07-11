@@ -17,11 +17,11 @@ module.exports = (client, guild) => {
 
  const leaveEmbed = new MessageEmbed()
        .setColor(Color)
-       .setTitle("Joined A new Server!!")
+       .setTitle("Leaved from new Server!!")
        .setThumbnail(guild.iconURL())
        .addField(
          "Guild:",
-         `i just joined to here **${guild.name}**.\n\nThere is **${guild.memberCount}** members`,
+         `i just kicked from here **${guild.name}**.\n\nThere was **${guild.memberCount}** members`,
          true
        )
        .addField(
@@ -35,16 +35,14 @@ module.exports = (client, guild) => {
          true
        )
        .setTimestamp() // moment().format('LLL'),
-       .setFooter(`Cool`);
+       .setFooter(`f**k off`);
     channel.send(leaveEmbed);
 
 
        const embed = new MessageEmbed()
-      .setTitle("sad😐!")
+      .setTitle("😐")
       .setColor(Color)     
-      .addField("I have been kicked fromyour server:", `${guild.name}`)
-      .addField("I am so sad for this!", `Get me back n there by [clicking here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)`)
-      .addField("Join To My Server:", `[click here](https://discord.gg/onyx-bot)`)
+      .setDescription(`**I have been kicked from your server:**\n \`${guild.name}\`\n\n**I am so sad for this!**\n\`invite me again to ${guild.name}\` **by** [clicking here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)\n\n**If You need any help or quesstions:**\n\`Join To My Server:\` by [click here](https://discord.gg/onyx-bot)`)
   
     let invite = new disbut.MessageButton()
       .setStyle('url')
