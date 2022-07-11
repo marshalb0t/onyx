@@ -1,61 +1,60 @@
-const Discord = require("discord.js");
-const db = require("quick.db")
-const Tickets = require("../../models/tickets.js");
-const config = require("../../config.json")
-const { Database } = require("quickmongo")
-const db1 = new Database(config.database)
-////كود معلومات السيرفر
-module.exports = {
-    name: "server",
-    description: "show server info",
-    cooldown: 5,
-    run: async (client, message, args) => {
+const { Client, Message, MessageEmbed, Role } = require('discord.js');
+const moment = require('moment')
+const { color } = require("../../config.json");
+const { lineReply } = require("discord-reply");
 
-const moment = require("moment")
-if(message.author.bot) return;
-let count = message.guild.premiumSubscriptionCount
-let level = "0"
-if(count > 1) level = "1"
-if(count > 14) level = "2"
-if(count > 29) level = "3"
-let ticket = message.guild.channels.cache.filter(m => m.name.startsWith("ticket-")).size;
-let text = message.guild.channels.cache.filter(m => m.type === "text").size;
-let Verification =  message.guild.verificationLevel
-let prefix = await db1.fetch(`prefixز${message.guild.id}`);
-if(prefix == null) prefix = "+"
-if(Verification === "NONE") Verification = "None"
-if(Verification === "LOW") Verification = "Low"
-if(Verification === "MEDIUM") Verification = "Medium"
-if(Verification === "HIGH") Verification = "High"
-if(Verification === "VERY_HIGH") Verification = "Very High"
-let voice = message.guild.channels.cache.filter(m => m.type === "voice").size;
-let reg = message.guild.region
-if(reg === "europe") reg = "Europe"
-if(reg === "russia") reg = "Russia"
-if(reg === "india") reg = "India"
-let ashour = "removerole"
-let punishment = await db.get(`punishment_${message.guild.id}`);
-Tickets.findOne({
-guildID: message.guild.id,
-}, (err, tickets) => {
-if (ashour === null) ashour = "None";
-if (punishment === null) punishment = ashour;
-message.guild.fetchBans().then(bans =>  {
-let embed = new Discord.MessageEmbed()
-.setAuthor(`${message.author.username}`, `${message.author.avatarURL({dynamic:true})}`)
-.addField('Owner name', ` \`\`\`${message.guild.owner.user.username}\`\`\` `, true)
-.addField("Server Created At:", ` \`\`\`${moment(message.guild.createdAt).fromNow()}\`\`\` `,true)
-.addField('Channels', ` \`\`\`Text: ${text} | Voice: ${voice}\`\`\` `, false)
-.addField('Roles', `\`\`\`${message.guild.roles.cache.size}\`\`\``, false)
-.addField('Region', ` \`\`\`${reg}\`\`\` `, false)
-.addField("Members", ` \`\`\`Online: ${message.guild.members.cache.filter(r => r.presence.status === 'online').size} | Idle: ${message.guild.members.cache.filter(r => r.presence.status === 'idle').size} | Dnd: ${message.guild.members.cache.filter(r => r.presence.status === 'dnd').size}  \nOffline: ${message.guild.members.cache.filter(r => r.presence.status === 'offline').size} | Bots: ${message.guild.members.cache.filter(r => r.user.bot).size} | All: ${message.guild.memberCount}\`\`\` `, true)
-.addField("Bans",`\`\`\`${bans.size}\`\`\``)
-.addField('Boosts', `\`\`\`Level: ${level} | count: ${count}\`\`\``, false)
-.addField('Tickets', `\`\`\`Tickets Opened: ${tickets.number}\`\`\``, false)
-.addField('Protection Punishment', `\`\`\`${punishment}\`\`\``, false)
-.addField('Verification Level', `\`\`\`${Verification}\`\`\``, false)
-.addField('Server prefix', `\`\`\`${prefix}\`\`\``, false)
-.setColor('#9e1c36')
-message.channel.send(embed)})})
+module.exports = {
+  name: "serverinfo",
+  aliases: ["server", "si"],
+  description: "get server informations",
+  usage: "-server",
+  run: async (client, message, args) => {
+        const filterLevels = {
+            DISABLED: 'Off',
+            MEMBERS_WITHOUT_ROLES: 'No Role',
+            ALL_MEMBERS: 'Everyone'
+        };
+        const verificationLevels = {
+            NONE: 'None',
+            LOW: 'Low',
+            MEDIUM: 'Medium',
+            HIGH: '(╯°□°）╯︵ ┻━┻',
+            VERY_HIGH: '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻'
+        };
+        const vanityCode = message.guild.vanityURLCode;
+        let vanityInvite = `https://discord.gg/${vanityCode}`;
+        if (vanityCode === null) vanityInvite = 'No custom URL';
+        const members = message.guild.members.cache;
+        const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
+        const embed = new MessageEmbed()
+        .setTimestamp()
+        .setTitle("Server Information")
+        .setColor(color)
+        .setThumbnail(message.guild.iconURL({ dynamic: true }))
+        .addField(`Name:`, message.guild.name, true)
+        .addField(`ID:`, message.guild.id, true)
+        .addField(`Owner:`, message.guild.owner, true)  
+        .addField(`Region:`, message.guild.region, true)
+        .addField(`Members:`, message.guild.memberCount, true)
+        .addField(`Emojis:`, `Total: ${message.guild.emojis.cache.size}\nAnimated: ${message.guild.emojis.cache.filter(emoji => emoji.animated).size}`, true)
+        .addField(`Channels:`, `Text: ${message.guild.channels.cache.filter(channel => channel.type === 'text').size}\nVoice: ${message.guild.channels.cache.filter(channel => channel.type === 'voice').size}`, true)        
+        .addField(`Roles:`, message.guild.roles.cache.size, true)
+        .addField(`Creation:`, `${moment(message.guild.createdTimestamp).format('LL')} ${moment(message.guild.createdTimestamp).format('LTS')} ${moment(message.guild.createdTimestamp).fromNow()},`)
+        .addField(`Boost Tier:`, `${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`)
+        .addField(`Boost Count:`, `${message.guild.premiemSubscriptionCount || '0'}`)
+        .addField(`Explicit Filter:`, `${filterLevels[message.guild.explicitContentFilter]}`)
+        .addField(`Verification Level:`,`${verificationLevels[message.guild.verificationLevel]}`)
+        .addField(`Vanity Link:`, `${vanityInvite}`)
+        .addField('Presence', [
+            '**Other Information**',
+            `Integrations: ${message.guild.fetchIntegrations().size ? message.guild.fetchIntegrations().size : 'No integrations'}`,
+            `Webhooks: ${message.guild.fetchWebhooks().size || '0'}`,
+            '\u200b'
+        ], true)
+        .addField(`Roles [${roles.length}]:`, roles.length < 15 ? roles.join(', ') : roles.length > 15 ? `${roles.slice(0, 15).join(', ')}\n+${roles.length-15} roles...` : 'None')
+        .setAuthor(`${message.guild.name}`)
+        .setFooter(`Requester: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
+
+        message.lineReplyNoMention(embed);
 }
 }
