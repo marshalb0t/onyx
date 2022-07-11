@@ -29,23 +29,27 @@ module.exports = {
         const embed1 = new Discord.MessageEmbed()
         .setTitle("❯ General Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:"+`[${public.length}]`, `\`avatar, emojiinfo, emojis, github, help, links, ping, servericon, serverinfo, showemoji, stats, userinfo\``)
+        .addField("Availby Commands: "+`[${public.length}]`, `\`avatar, emojiinfo, emojis, github, help, links, ping, servericon, serverinfo, showemoji, stats, userinfo\``)
         .setColor(Color)
         .setFooter('Second Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
-        
+      
+        let mod = ["addrole", "ban", "bans", "cinfo", "clear", "ctopic", "kick", "lock", "lockdown", "mute", "nick", "purge", "rmvrole", "slowmode", "unban", "unlock", unmute"]
+
         const embed2 = new Discord.MessageEmbed()
         .setTitle("❯ Moderation Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`addemoji, addrole ban, bans, channels, cinfo, clear, ctopic, kick, lock, lockdown, mute, nick, purge, rmvrole, slowmode, unban, unlock, unmute\``)
+        .addField("Availby Commands: "+`[${mod.length}]`, `\`addrole ban, bans, cinfo, clear, ctopic, kick, lock, lockdown, mute, nick, purge, rmvrole, slowmode, unban, unlock, unmute\``)
         .setColor(Color)
         .setFooter('Third Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
+        let fun = ["ascii", "baka", "cuddle", "dance", "deepfry", "dicksize", "howgay", "hug", "joke", "pat", "rate"]
+
         const embed3 = new Discord.MessageEmbed()
         .setTitle("❯ Funny Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`ascii, baka, cuddle, dance, deepfry, dicksize, howgay, hug, joke, pat, rate\``)
+        .addField("Availby Commands: "+`[${fun.length}]`, `\`ascii, baka, cuddle, dance, deepfry, dicksize, howgay, hug, joke, pat, rate\``)
         .setColor(Color)
         .setFooter('4th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
