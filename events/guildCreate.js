@@ -11,30 +11,10 @@ const Color = "#303136";
  */
 
 
-module.exports = (client, guild) => {
- 
-      const embed = new MessageEmbed()
-      .setTitle("Thanks for inviting me!")
-      .setColor(Color)     
-      .addField("• Who am i? What\'s my features?", `im ${client.user.username} a discord multi-purpose bot that does \`moderation\`, \`funny\` others \`gif, pictures\` and much more features..`)
-      .addField("• Need Prefix?", `[ \`-\` ]`)
-      .addField("• Need Help?", `[ \`-help\` ]`)
-  
-    let invite = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Invite Me') 
-      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`);
-      let support = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Support Server') 
-      .setURL(`https://discord.gg/snow-team`);
+module.exports = (client, guild) => {     
 
-      return guild.owner.send(embed,{
-        button: [support,invite],
-      });
+ const channel = client.channels.guild.cache.get("994335071186194452");
 
-
- const channel = client.channels.guild.cache.get("994335071186194452")
  const joinEmbed = new MessageEmbed()
        .setColor(Color)
        .setTitle("Joined A new Server!!")
@@ -58,5 +38,25 @@ module.exports = (client, guild) => {
        .setFooter(`Cool`);
     channel.send(joinEmbed);
 
+
+       const embed = new MessageEmbed()
+      .setTitle("Thanks for inviting me!")
+      .setColor(Color)     
+      .addField("• Who am i? What\'s my features?", `im ${client.user.username} a discord multi-purpose bot that does \`moderation\`, \`funny\` others \`gif, pictures\` and much more features..`)
+      .addField("• Need Prefix?", `[ \`-\` ]`)
+      .addField("• Need Help?", `[ \`-help\` ]`)
+  
+    let invite = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Invite Me') 
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`);
+      let support = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Support Server') 
+      .setURL(`https://discord.gg/snow-team`);
+
+      return guild.owner.send(embed,{
+        button: [support,invite],
+      });
 
 }
