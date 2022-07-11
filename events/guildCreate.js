@@ -13,7 +13,7 @@ const Color = "#303136";
 
 module.exports = (client, guild) => {     
 
- const channel = client.channels.guild.cache.get("994335071186194452");
+ const channel = client.channels.cache.get("994335071186194452");
 
  const joinEmbed = new MessageEmbed()
        .setColor(Color)
