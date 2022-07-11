@@ -40,9 +40,11 @@ module.exports = (client, guild) => {
 
 
        const embed = new MessageEmbed()
-      .setTitle("😐")
+      .setTitle("WHY!!")
       .setColor(Color)     
-      .setDescription(`**I have been kicked from your server:**\n \`${guild.name}\`\n\n**I am so sad for this!**\n\`invite me again to ${guild.name}\` **by** [clicking here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)\n\n**If You need any help or quesstions:**\n\`Join To My Server:\` by [click here](https://discord.gg/onyx-bot)`)
+      .addField("Kicked From:", `\`${guild.name}\``)
+      .addField("Invite Me:", `To ${guild.name} [With Clicking Here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)`
+      .addField("Support Server:", `**Join To My Server:** [With Clicking Here](https://discord.gg/onyx-bot)`)
   
     let invite = new disbut.MessageButton()
       .setStyle('url')
@@ -53,8 +55,9 @@ module.exports = (client, guild) => {
       .setLabel('Support Server') 
       .setURL(`https://discord.gg/onyx-bot`);
 
-      return guild.owner.send(embed,{
+      return guild.owner.send(`i send this message to you cause you\'re the guild owner!`,{
         button: [support,invite],
+        embeds: embed
       });
 
 }
