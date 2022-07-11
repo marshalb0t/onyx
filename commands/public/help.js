@@ -34,7 +34,7 @@ module.exports = {
         .setFooter('Second Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
       
-        let mod = ["addrole", "ban", "bans", "cinfo", "clear", "ctopic", "kick", "lock", "lockdown", "mute", "nick", "purge", "rmvrole", "slowmode", "unban", "unlock", unmute"]
+        let mod = ["addrole", "ban", "bans", "cinfo", "clear", "ctopic", "kick", "lock", "lockdown", "mute", "nick", "purge", "rmvrole", "slowmode", "unban", "unlock", "unmute"]
 
         const embed2 = new Discord.MessageEmbed()
         .setTitle("❯ Moderation Category:")
