@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const moment = require("moment");
 const Extra = require("discord-buttons");
-const { Prefix, Color } = require("../../config.js");
-const { lineReply } = require("discord-reply");
+const { color } = require("../../config.js");
 
 module.exports = {
  name: "github",
