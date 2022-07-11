@@ -4,7 +4,6 @@ const disbutpages = require("discord-embeds-pages-buttons")
 const disbut = require("discord-buttons");
 const MessageButton = require("discord-buttons");
 const { color } = require("../../config.json");
-
 /**
  * 
  * @param {Client} client 
