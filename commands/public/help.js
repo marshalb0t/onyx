@@ -29,7 +29,7 @@ module.exports = {
         const embed1 = new Discord.MessageEmbed()
         .setTitle("❯ General Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands [${public.length}]:", `\`avatar, emojiinfo, emojis, github, help, links, ping, servericon, serverinfo, showemoji, stats, userinfo\``)
+        .addField("Availby Commands:"+`[${public.length}]`, `\`avatar, emojiinfo, emojis, github, help, links, ping, servericon, serverinfo, showemoji, stats, userinfo\``)
         .setColor(Color)
         .setFooter('Second Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
