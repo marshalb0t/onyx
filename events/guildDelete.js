@@ -55,9 +55,8 @@ module.exports = (client, guild) => {
       .setLabel('Support Server') 
       .setURL(`https://discord.gg/onyx-bot`);
 
-      return guild.owner.send(`i send this message to you cause you\'re the guild owner!`,{
+      return guild.owner.send(`i send this message to you cause you\'re the guild owner!`, embed,{
         button: [support,invite],
-        embed: embed
       });
 
 }
