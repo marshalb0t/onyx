@@ -11,7 +11,7 @@ module.exports = {
   name: "help",
    aliases: ["h"],
   run: async (client, message, args ) => {
-    const prefix = db.get(`guild_${message.guild.id}_prefix`) || '.';
+    const prefix = db.get(`guild_${message.guild.id}_prefix`) || '+';
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed()
         .setTitle(`My Features`) 
@@ -95,7 +95,8 @@ module.exports = {
 
         const expired = new Discord.MessageEmbed()
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .setDescription(`❯ This Help Menu is expired!\n Retype:\`${prefix}help\` To Do Again!`)
+        .setDescription(`❯ This Help Menu is expired!`)
+        .addField("Retype:", `\`${prefix}help\` To Do Again!`)
         .setColor(Color)      
         .setTimestamp()
         
