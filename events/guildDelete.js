@@ -14,8 +14,7 @@ const Color = "#303136";
 module.exports = (client, guild) => {     
 
  const channel = client.channels.cache.get("994933747612925963");
-
- const leaveEmbed = new MessageEmbed()
+ const embed = new MessageEmbed()
        .setColor(Color)
        .setTitle("Leaved from new Server!!")
        .setThumbnail(guild.iconURL())
@@ -36,28 +35,6 @@ module.exports = (client, guild) => {
        )
        .setTimestamp() // moment().format('LLL'),
        .setFooter(`off`);
-    channel.send(leaveEmbed);
-
-
-       const embed = new MessageEmbed()
-      .setTitle("WHY!!")
-      .setDescription("**i sended this message to you cause you're the guild owner!**")
-      .setColor(Color)     
-      .addField("Kicked From:", `\`${guild.name}\``)
-      .addField("Invite Me:", `To [${guild.name}] [With Clicking Here](https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot)`)
-      .addField("Support Server:", `**Join To My Server:** [With Clicking Here](https://discord.gg/AP4DHe7HAC)`)
-  
-     let invite = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Invite Me') 
-      .setURL(`https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot`);
-      let support = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Support Server') 
-      .setURL(`https://discord.gg/AP4DHe7HAC`);
-
-      return guild.owner.send(embed,{
-        button: [support,invite],
-      });
+    channel.send(embed);
 
 }
