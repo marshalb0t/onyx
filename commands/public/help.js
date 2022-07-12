@@ -70,15 +70,6 @@ module.exports = {
         .setColor(Color)
         .setFooter('6th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
- 
-        let emo = ["add-emoji", "add-these", "emojiinfo", "emojis-list", "emojistats", "emojis", "jumbo", "remove-emoji", "remove-these", "rename-emoji"]
-        const embed7 = new Discord.MessageEmbed()
-        .setTitle("❯ Emote Category:")
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${emo.length}]`, `\`‌add-emoji, add-these, emojiinfo, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji\``)
-        .setColor(Color)
-        .setFooter('7th Page', client.user.displayAvatarURL({ dynamic: true}))
-        .setTimestamp()
       
        let txt = ["textkurdish", "textarabic", "textenglish"]
   
@@ -88,6 +79,16 @@ module.exports = {
         .addField("Availby Commands: "+`[${txt.length}]`, `\`textkurdish, textenglish, textarabic, textpersian, textturkish\``)
         .setColor(Color)
         .setFooter('8th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setTimestamp()
+
+        let emo = ["add-emoji", "add-these", "emojiinfo", "emojis-list", "emojistats", "emojis", "jumbo", "remove-emoji", "remove-these", "rename-emoji"]
+
+        const embed7 = new Discord.MessageEmbed()
+        .setTitle("❯ Emote Category:")
+        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
+        .addField("Availby Commands: "+`[${emo.length}]`, `\`‌add-emoji, add-these, emojiinfo, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji\``)
+        .setColor(Color)
+        .setFooter('7th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         const expired = new Discord.MessageEmbed()
