@@ -1,8 +1,4 @@
-const ButtonPages = require('discord-button-pages');
 const { MessageEmbed, Discord, Client } = require('discord.js')
-const disbutpages = require("discord-embeds-pages-buttons")
-const disbut = require("discord-buttons");
-const MessageButton = require("discord-buttons");
 const Color = "#303136";
 /**
  * 
@@ -34,7 +30,7 @@ module.exports = (client, guild) => {
          true
        )
        .setTimestamp() // moment().format('LLL'),
-       .setFooter(`nice..`);
+       .setFooter(`nice`);
     channel.send(embed);
 
 }
