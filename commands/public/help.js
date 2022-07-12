@@ -33,7 +33,7 @@ module.exports = {
         .setFooter('Second Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
       
-        let mod = ["addrole", "ban", "bans", "channels", "channelinfo", "purge", "hide", "kick", "lock", "mute", ",rmvrole", "role", "roles", "nick", "slowmode", "unban", "unhide", "unlock", "unmute", vkick"]
+        let mod = ["addrole", "ban", "bans", "channels", "channelinfo", "purge", "hide", "kick", "lock", "mute", "rmvrole", "role", "roles", "nick", "slowmode", "unban", "unhide", "unlock", "unmute", "vkick"]
         const embed2 = new Discord.MessageEmbed()
         .setTitle("❯ Moderation Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
@@ -42,39 +42,52 @@ module.exports = {
         .setFooter('Third Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
-        let fun = ["baka", "clyde", "cuddle", "dance", "deepfry", "dicksize", "hug", "joke", pat"]
+        let fun = ["baka", "clyde", "cuddle", "dance", "deepfry", "dicksize", "hug", "joke", "pat"]
 
         const embed3 = new Discord.MessageEmbed()
         .setTitle("❯ Funny Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${fun.length}]`, `\`ascii, baka, cuddle, dance, deepfry, dicksize, howgay, hug, joke, pat, rate\``)
+        .addField("Availby Commands: "+`[${fun.length}]`, `\`baka, clyde, cuddle, dance, deepfry, dicksize, hug, joke, pat\``)
         .setColor(Color)
         .setFooter('4th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
-        
+       let GIF = ["boy", "anime", "girl", "couple", "emoji", "baby"]
         const embed4 = new Discord.MessageEmbed()
         .setTitle("❯ Gif Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`boy\`, \`girl\`, \`anime\`, \`animal\`, \`couple\`, \`emoji\`, \`baby\``)
+        .addField("Availby Commands: "+`[${GIF.length}]`, `\`boy\`, \`girl\`, \`anime\`, \`animal\`, \`couple\`, \`emoji\`, \`baby\``)
         .setColor(Color)
         .setFooter('5th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
         
+        let pic = ["pboy", "pgirl", "panimal", "pbaby", "pemoji"]
+
         const embed5 = new Discord.MessageEmbed()
         .setTitle("❯ Picture Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`pboy\`, \`pgirl\`, \`panimal\`, \`pbaby\`, \`pcouple\`, \`pemoji\``)
+        .addField("Availby Commands: "+`[${pic.length}]`, `\`pboy\`, \`pgirl\`, \`panimal\`, \`pbaby\`, \`pemoji\``)
         .setColor(Color)
         .setFooter('6th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
-        
+ 
+        let emo = ["add-emoji", "add-these", "emojiinfo", ",emojis-list", "emojistats", "emojis", "jumbo", "remove-emoji", "remove-these", "rename-emoji"]
+        const embed7 = new Discord.MessageEmbed()
+        .setTitle("❯ Emote Category:")
+        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
+        .addField("Availby Commands: "+`[${emo.length}]`, `\`‌add-emoji, add-these, emojiinfo, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji\``)
+        .setColor(Color)
+        .setFooter('7th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setTimestamp()
+      
+       let txt = ["textkurdish", "textarabic", "textenglish"]
+  
         const embed6 = new Discord.MessageEmbed()
          .setTitle("❯ Text Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands:", `\`textkurdish, textenglish, textarabic, textpersian, textturkish\``)
+        .addField("Availby Commands: "+`[${txt.length}]`, `\`textkurdish, textenglish, textarabic, textpersian, textturkish\``)
         .setColor(Color)
-        .setFooter('7th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('8th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         const expired = new Discord.MessageEmbed()
@@ -136,6 +149,12 @@ module.exports = {
         .setValue('text')
         .setDescription('Use Text Commands!')
 
+        let emote = new MessageMenuOption()
+        .setLabel('Emote')
+        .setEmoji('🎈')
+        .setValue('emote')
+        .setDescription('Emote Commands!')
+
         let link = new MessageMenuOption()
         .setLabel('Links!')
         .setEmoji("🔗")
@@ -181,6 +200,11 @@ module.exports = {
         if(b.values[0] == "text") {
           Sendmenu.edit(embed6, select)
         }
+
+        if(b.values[0] == "emote") {
+          Sendmenu.edit(embed7, select)
+        }
+
         if(b.values[0] == "home") {
           Sendmenu.edit(embed, select, true)
         }
