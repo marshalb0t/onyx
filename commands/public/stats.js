@@ -34,8 +34,8 @@ const stats = new Discord.MessageEmbed()
 
       let button1 = new MessageButton()
        .setStyle('url')
-       .setURL('https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot') 
-       .setLabel('Invite Me')
+       .setURL('https://discord.gg/AP4DHe7HAC') 
+       .setLabel('Onyx Offical Server')
 
 
       let row1 = new MessageActionRow()
