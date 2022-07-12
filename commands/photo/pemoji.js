@@ -22,7 +22,7 @@ module.exports = {
     .setFooter(`${message.author.tag} `, message.author.avatarURL)
     .setImage(replies[result]);
 
-    message.lineReplyNoMentionphotoembed);
+    message.lineReplyNoMention(photoembed);
 
    
   }
