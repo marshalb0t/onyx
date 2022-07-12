@@ -16,20 +16,27 @@ module.exports = {
     }).then(res => {
       if (res.data.banner) {
         if (res.data.banner.startsWith("a_")) {
-          message.reply({
-            embeds: [new MessageEmbed().setTitle(target.user.tag)
-              .setDescription(`[Click if not installed](https://cdn.discordapp.com/banners/${target.id}/${res.data.banner}.gif?size=4096)`)
-              .setImage(`https://cdn.discordapp.com/banners/${target.id}/${res.data.banner}.gif?size=4096`)]
-          })
+          const embed1 = new Discord.MessageEmbed()
+          .setTitle(target.user.tag)
+          .setDescription(`[Click if not installed](https://cdn.discordapp.com/banners/${target.id}/${res.data.banner}.gif?size=4096)`)
+          .setImage(`https://cdn.discordapp.com/banners/${target.id}/${res.data.banner}.gif?size=4096`)
+          .setColor("RANDOM")
+          message.channel.send(embed1);
         }
         else {
-          message.reply({
-            embeds: [new MessageEmbed().setTitle(target.user.tag).setDescription(`[Click if not installed](https://cdn.discordapp.com/banners/${target.id}/${res.data.banner}.png?size=4096)`)
-              .setImage(`https://cdn.discordapp.com/banners/${target.id}/${res.data.banner}.png?size=4096`)]
-          })
+          const embed2 = new Discord.MessageEmbed()
+          .setTitle(target.user.tag)
+          .setDescription(`[Click if not installed](https://cdn.discordapp.com/banners/${target.id}/${res.data.banner}.png?size=4096)`)
+          .setImage(`https://cdn.discordapp.com/banners/${target.id}/${res.data.banner}.png?size=4096`)
+          .setColor("RANDOM")
+          message.channel.send(embed2);
         }
-      } else {
-        message.channel.send("User Doesn't Have Banner")
+       } else {
+        const embed0 = new Discord.MessageEmbed()
+        .setDescription("User Doesn't Have Banners")
+        .setColor("RANDOM")
+        message.channel.send(embed0);
+        
       }
     })
   }
