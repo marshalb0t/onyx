@@ -24,27 +24,25 @@ module.exports = {
         .setFooter('First Page' , client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
-        let public = ["avatar", "emojiinfo", "emojis", "github", "help", "links", "ping", "servericon", "serverinfo", "showemoji", "stats", "userinfo"]
-
+        let public = ["avatar", "bot", "github", "help", "links", "ping", "roleinfo", "serverinfo", "userinfo"]
         const embed1 = new Discord.MessageEmbed()
         .setTitle("❯ General Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${public.length}]`, `\`avatar, emojiinfo, emojis, github, help, links, ping, servericon, serverinfo, showemoji, stats, userinfo\``)
+        .addField("Availby Commands: "+`[${public.length}]`, `\`avatar, stats, github, help, links, ping, roleinfo, serverinfo, userinfo\``)
         .setColor(Color)
         .setFooter('Second Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
       
-        let mod = ["addrole", "ban", "bans", "cinfo", "clear", "ctopic", "kick", "lock", "lockdown", "mute", "nick", "purge", "rmvrole", "slowmode", "unban", "unlock", "unmute"]
-
+        let mod = ["addrole", "ban", "bans", "channels", "channelinfo", "purge", "hide", "kick", "lock", "mute", ",rmvrole", "role", "roles", "nick", "slowmode", "unban", "unhide", "unlock", "unmute", vkick"]
         const embed2 = new Discord.MessageEmbed()
         .setTitle("❯ Moderation Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${mod.length}]`, `\`addrole ban, bans, cinfo, clear, ctopic, kick, lock, lockdown, mute, nick, purge, rmvrole, slowmode, unban, unlock, unmute\``)
+        .addField("Availby Commands: "+`[${mod.length}]`, `\`addrole, ban, bans, channels, channelinfo, purge, hide, kick, lock, mute, rmvrole, role, roles, nick, slowmode, unban, unhide, unlock, unmute, vkick\``)
         .setColor(Color)
         .setFooter('Third Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
-        let fun = ["ascii", "baka", "cuddle", "dance", "deepfry", "dicksize", "howgay", "hug", "joke", "pat", "rate"]
+        let fun = ["baka", "clyde", "cuddle", "dance", "deepfry", "dicksize", "hug", "joke", pat"]
 
         const embed3 = new Discord.MessageEmbed()
         .setTitle("❯ Funny Category:")
