@@ -24,6 +24,10 @@ const { MessageMenuOption, MessageMenu } = require("discord-buttons");
 const { Database } = require("quickmongo");
 const db = require("quick.db")
 const db1 = new Database(config.database);
+client.commands = new Collection();
+client.events = new Collection();
+client.category = fs.readdirSync("./commands/");
+client.aliases = new Collection();
 const listener = app.listen(process.env.PORT, () => { console.log("Your app is listening on port " + listener.address().port); });
 db1.on("ready", () => { console.log("quickmongo Database connected!") });
 mongoose.connect(config.database2 ,{ useNewUrlParser: true, useUnifiedTopology: true });
