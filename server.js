@@ -24,20 +24,25 @@ const { MessageMenuOption, MessageMenu } = require("discord-buttons");
 const { Database } = require("quickmongo");
 const db = require("quick.db")
 const db1 = new Database(config.database);
-client.commands = new Collection();
-client.events = new Collection();
-client.category = fs.readdirSync("./commands/");
-client.aliases = new Collection();
 const listener = app.listen(process.env.PORT, () => { console.log("Your app is listening on port " + listener.address().port); });
 db1.on("ready", () => { console.log("quickmongo Database connected!") });
 mongoose.connect(config.database2 ,{ useNewUrlParser: true, useUnifiedTopology: true });
 
 
 
-
 client.commands = new Discord.Collection();
-["command"].forEach((handler) => {
-  require(`./handlers/${handler}`)(client);
+const Categories = ["moderation", "public", "owner", "fun", "gif", "text", "emote", "invites"];
+
+Categories.forEach(async function(Category, message) {
+fs.readdir(`./commands/${Category}`, (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/${Category}/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`Attempting to load command | Category : ${Category} | Command : ${commandName}`);
+    client.commands.set(commandName, props);
+  })
 });
 
 fs.readdir("./events/", (err, files) => {
