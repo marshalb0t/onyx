@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "textarabic",
-  aliases: ["textArabic"],
+  aliases: ["textArabic", "ta"],
   description: "Show text",
   usage: "text",
   run: async (client, message, args) => {
