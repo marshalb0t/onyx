@@ -4,7 +4,7 @@ const { color } = require("../../config.json");
 const { lineReply } = require("discord-reply");
 
 module.exports = {
-  name: "pcouple",
+  name: "pemoji",
   aliases: [],
   description: "Show Photo",
   usage: "Photo",
@@ -16,7 +16,7 @@ module.exports = {
     
     let photoembed = new Discord.MessageEmbed()
 
-    .setTitle("Couple Photo")
+    .setTitle("Emoji Photo")
     
       .setColor(color)
     .setFooter(`${message.author.tag} `, message.author.avatarURL)
