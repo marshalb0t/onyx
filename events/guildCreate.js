@@ -43,8 +43,8 @@ module.exports = (client, guild) => {
       .setTitle("Thanks for inviting me!")
       .setColor(Color)     
       .addField("• Who am i? What\'s my features?", `im ${client.user.username} a discord multi-purpose bot that does \`moderation\`, \`funny\` others \`gif, pictures\` and much more features..`)
-      .addField("• Need Prefix?", `[ \`-\` ]`)
-      .addField("• Need Help?", `[ \`-help\` ]`)
+      .addField("• Need Prefix?", `[ \`+\` ]`)
+      .addField("• Need Help?", `[ \`+help\` ]`)
   
     let invite = new disbut.MessageButton()
       .setStyle('url')
