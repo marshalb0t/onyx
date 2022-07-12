@@ -10,7 +10,7 @@ module.exports = {
 
         if(!message.member.hasPermission('MANAGE_CHANNELS')) {
             const lockchannelError = new MessageEmbed()
-            .setDescription('You don\'t have permission to unlock channels!')
+            .setDescription('You don\'t have permission to Unhide channels!')
             .setColor(color)
 
             return message.channel.send(lockchannelError)
