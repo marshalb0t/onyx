@@ -35,7 +35,7 @@ module.exports = (client, guild) => {
          true
        )
        .setTimestamp() // moment().format('LLL'),
-       .setFooter(`f**k off`);
+       .setFooter(`off`);
     channel.send(leaveEmbed);
 
 
