@@ -1,4 +1,8 @@
+const ButtonPages = require('discord-button-pages');
 const { MessageEmbed, Discord, Client } = require('discord.js')
+const disbutpages = require("discord-embeds-pages-buttons")
+const disbut = require("discord-buttons");
+const MessageButton = require("discord-buttons");
 const Color = "#303136";
 /**
  * 
@@ -12,11 +16,11 @@ module.exports = (client, guild) => {
  const channel = client.channels.cache.get("994933719263608922");
  const embed = new MessageEmbed()
        .setColor(Color)
-       .setTitle("Joined A new Server!!")
+       .setTitle("Joined to a new Server!!")
        .setThumbnail(guild.iconURL())
        .addField(
          "Guild:",
-         `i just joined to here **${guild.name}**.\n\nThere is **${guild.memberCount}** members`,
+         `i just joined to here: **${guild.name}**.\n\nMembrs: **${guild.memberCount}**`,
          true
        )
        .addField(
@@ -30,8 +34,7 @@ module.exports = (client, guild) => {
          true
        )
        .setTimestamp() // moment().format('LLL'),
-       .setFooter(`Cool`);
+       .setFooter(`nice..`);
     channel.send(embed);
-    
 
 }
