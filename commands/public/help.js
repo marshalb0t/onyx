@@ -33,21 +33,21 @@ module.exports = {
         .setFooter('Second Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
       
-        let mod = ["addrole", "ban", "bans", "channels", "channelinfo", "purge", "hide", "kick", "lock", "mute", "rmvrole", "role", "roles", "nick", "slowmode", "unban", "unhide", "unlock", "unmute", "vkick"]
+        let mods = ["addrole", "ban", "bans", "channels", "channelinfo", "purge", "hide", "kick", "lock", "mute", "rmvrole", "role", "roles", "nick", "slowmode", "unban", "unhide", "unlock", "unmute", "vkick"]
         const embed2 = new Discord.MessageEmbed()
         .setTitle("❯ Moderation Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${mod.length}]`, `\`addrole, ban, bans, channels, channelinfo, purge, hide, kick, lock, mute, rmvrole, role, roles, nick, slowmode, unban, unhide, unlock, unmute, vkick\``)
+        .addField("Availby Commands: "+`[${mods.length}]`, `\`addrole, ban, bans, channels, channelinfo, purge, hide, kick, lock, mute, rmvrole, role, roles, nick, slowmode, unban, unhide, unlock, unmute, vkick\``)
         .setColor(Color)
         .setFooter('Third Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
-        let fun = ["baka", "clyde", "cuddle", "dance", "deepfry", "dicksize", "hug", "joke", "pat"]
+        let funs = ["baka", "clyde", "cuddle", "dance", "deepfry", "dicksize", "hug", "joke", "pat"]
 
         const embed3 = new Discord.MessageEmbed()
         .setTitle("❯ Funny Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${fun.length}]`, `\`baka, clyde, cuddle, dance, deepfry, dicksize, hug, joke, pat\``)
+        .addField("Availby Commands: "+`[${funs.length}]`, `\`baka, clyde, cuddle, dance, deepfry, dicksize, hug, joke, pat\``)
         .setColor(Color)
         .setFooter('4th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
@@ -61,12 +61,12 @@ module.exports = {
         .setFooter('5th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
         
-        let pic = ["pboy", "pgirl", "panimal", "pbaby", "pemoji"]
+        let pics = ["pboy", "pgirl", "panimal", "pbaby", "pemoji"]
 
         const embed5 = new Discord.MessageEmbed()
         .setTitle("❯ Picture Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${pic.length}]`, `\`pboy\`, \`pgirl\`, \`panimal\`, \`pbaby\`, \`pemoji\``)
+        .addField("Availby Commands: "+`[${pics.length}]`, `\`pboy\`, \`pgirl\`, \`panimal\`, \`pbaby\`, \`pemoji\``)
         .setColor(Color)
         .setFooter('6th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
@@ -78,7 +78,7 @@ module.exports = {
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Availby Commands: "+`[${txt.length}]`, `\`textkurdish, textenglish, textarabic, textpersian, textturkish\``)
         .setColor(Color)
-        .setFooter('8th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('7th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         let emo = ["add-emoji", "add-these", "emojiinfo", "emojis-list", "emojistats", "emojis", "jumbo", "remove-emoji", "remove-these", "rename-emoji"]
@@ -88,7 +88,7 @@ module.exports = {
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Availby Commands: "+`[${emo.length}]`, `\`‌add-emoji, add-these, emojiinfo, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji\``)
         .setColor(Color)
-        .setFooter('7th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('8th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         const expired = new Discord.MessageEmbed()
@@ -154,7 +154,7 @@ module.exports = {
         .setLabel('Emote')
         .setEmoji('🎈')
         .setValue('emote')
-        .setDescription('Emote Commands!')
+        .setDescription('Use Emote Commands!')
 
         let link = new MessageMenuOption()
         .setLabel('Links!')
