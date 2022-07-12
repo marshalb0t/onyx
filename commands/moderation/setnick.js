@@ -1,38 +1,88 @@
-const { MessageEmbed } = require('discord.js');
-const db = require('quick.db');
-const Discord = require("discord.js")
+const Discord = require('discord.js');
+const { color } = require("../../config.json");
+const { lineReply } = require("discord-reply");
 
 module.exports = {
-    config: {
-        name: "setnick",
-        description: "Sets Or Changes Nickname Of An User",
-        permissions: 'ADMINISTRATOR',
-    },
-    run: async (bot, message, args) => {
+  name: "nick",
+  aliases: ["addnick", "setnick", "nickname"],
+  description: "add nickname someone",
+  usage: "addnick @Matheros <Nickname>",
+  run: async (client, message, args) => {
 
-      
-        if (!args[0]) return message.channel.send(new Discord.MessageEmbed().setAuthor(`${message.author.username}`, `${message.author.avatarURL({dynamic:true})}`).setColor("9e1c36").setDescription("**Please Enter A User!**"))
-      
-        let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
-        if (!member) return message.channel.send(new Discord.MessageEmbed().setAuthor(`${message.author.username}`, `${message.author.avatarURL({dynamic:true})}`).setColor("9e1c36").setDescription("**Please Enter A Username!**"));
+    const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+    const perms = ["MANAGE_NICKNAMES" || "ADMINSTRATOR"];
+    const doggo = message.guild.members.cache.get(client.user.id);
+    let nickname = args[1];
 
-        if (member.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send(new Discord.MessageEmbed().setAuthor(`${message.author.username}`, `${message.author.avatarURL({dynamic:true})}`).setDescription('**Cannot Set or Change Nickname Of This User!**'))
+    if(!message.member.hasPermission(perms)) 
+    return message.lineReplyNoMention(`❌ You do not have the permission to do that lol try asking a staff to give you the permission **\`MANAGE_NICKNAMES\`** or **\`ADMINISTRATOR\`**`)
+    .then(msg => {
+      msg.delete({ timeout: 20000 })
+    });
 
-        if (!args[1]) return message.channel.send(new Discord.MessageEmbed().setAuthor(`${message.author.username}`, `${message.author.avatarURL({dynamic:true})}`).setColor("9e1c36").setDescription("**Please Enter A Nickname**"));
+    if(!doggo.hasPermission(perms))
+    return message.lineReplyNoMention(`❌ I do not have permission to ban users pls enable permission **\`MANAGE_NICKNAMES\`** for me`);
 
-        let nick = args.slice(1).join(' ');
+    if(!user)
+    return message.lineReplyNoMention(`❌ Please mention or provide the ID of the user from this guild !! **\`+nickname [Mention or ID] [The Nickname]\`**`)
 
-        try {
-        member.setNickname(nick)
-        const embed = new MessageEmbed()
-            .setAuthor(`${message.author.username}`, `${message.author.avatarURL({dynamic:true})}`)
-            .setColor("9e1c36")
-            .setDescription(`**Changed Nickname of ${member.displayName} to ${nick}**`)
-        message.channel.send(embed)
-        } catch {
-            return message.channel.send(new Discord.MessageEmbed().setAuthor(`${message.author.username}`, `${message.author.avatarURL({dynamic:true})}`).setColor("9e1c36").setDescription("**Missing Permissions - [CHANGE_NICKNAME]"))
-        }
+    if (!args[1]) 
+    return message.lineReplyNoMention(`❌ Please provide a nickname !!`);
 
-     
+    if (nickname.startsWith('"')) {
+    nickname = message.content.slice(message.content.indexOf(args[1]) + 1);
+
+    if (!nickname.includes('"')) 
+    return message.lineReplyNoMention(`❌Please ensure the nickname is surrounded in quotes ""`);
+
+    if (user.roles.highest.position > message.member.roles.highest.position)
+    return message.lineReplyNoMention(`❌ You cannot ban someone with an equal or higher role to you !!! or if you are owner pls be yourself in a higher position`)
+
+
+    if (user.roles.highest.position > doggo.roles.highest.position)
+    return message.lineReplyNoMention(`❌ You cannot ban someone with an equal or higher role than me !!`)
+
+    nickname = nickname.slice(0, nickname.indexOf('"'));
+    if (!nickname.replace(/\s/g, '').length)
+    return message.reply(`❌ Please provide a nickname to give to someone !`);
     }
+
+    if (nickname.length > 32) {
+    return message.lineReplyNoMention(`❌ Provided nickname is too big pls provide a nickname which is lesser than 32 characters !!`);
+
+
+    } else {
+
+      let reason;
+      if (args[1].startsWith('"'))
+      reason = message.content.slice(message.content.indexOf(nickname) + nickname.length + 1);
+      else reason = message.content.slice(message.content.indexOf(nickname) + nickname.length);
+
+      if (!reason) reason = '`-`';
+      if (reason.length > 1024) reason = reason.slice(0, 1021) + '...';
+
+      try {
+
+        const oldNickname = user.nickname || user.user.username;
+        const changelog = `From \`${oldNickname}\` to \`${nickname}\``;
+
+        await user.setNickname(nickname);
+
+        const embed = new Discord.MessageEmbed()
+          .setTitle('Nickname Changed !!')
+          .setDescription(`✅ <@${user.id}> (\`${user.user.tag}\`) nickname has been successfully changed !!`)
+          .addField('Changed By', `<@${message.member.id}>\n(\`${message.member.user.tag}\`)`, true)
+          .addField('Changed User', `<@${user.id}>\n(\`${user.user.tag}\`)`, true)
+          .addField('Changelog', changelog, true)
+          .addField('Reason', reason)
+          .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
+          .setTimestamp()
+          .setColor(color);
+        await message.lineReplyNoMention(embed);
+
+      } catch (err) {
+        message.lineReplyNoMention(`❌ Please check the role position !!`, err.message);
+      }
+    }  
+  }
 }
