@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const { color } = require("../../config.json");
+const { lineReply } = require("discord-reply");
 
 module.exports = {
   name: "baby",
-  aliases: ["kid","Baby"],
+  aliases: ["Baby"],
   description: "Show Gif",
   usage: "Gif",
   run: async (client, message, args) => {
@@ -15,11 +16,11 @@ module.exports = {
     
     let gifembed = new Discord.MessageEmbed()
     .setTitle("Baby Gif")
-      .setColor(Color)
+      .setColor(color)
     .setFooter(`${message.author.tag} `, message.author.avatarURL)
     .setImage(replies[result]);
 
-    message.channel.send(gifembed);
+    message.lineReplyNoMention(gifembed);
 
    
   }
