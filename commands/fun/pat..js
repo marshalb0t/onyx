@@ -14,10 +14,6 @@ module.exports = {
   usage: "pat @user",
   run: async (client, message, args) => {
 
-    const db =require("quick.db");
-let color = db.get(`color_${message.author.id}`);
-  if(color === null) color = "#EFB9BE";
-
       const data = await fetch("https://nekos.life/api/v2/img/pat").then((res) =>
       res.json()
     );
