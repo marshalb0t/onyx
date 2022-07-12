@@ -4,7 +4,7 @@ const { lineReply } = require("discord-reply");
 
 module.exports = {
   name: "textturkish",
-  aliases: ["TextArabic", "Textarabic", "TEXTARABIC", "ta", "tk"],
+  aliases: ["TextArabic", "Textarabic", "TEXTARABIC", "tt", "ttk"],
   description: "Show text",
   usage: "text",
   run: async (client, message, args) => {
