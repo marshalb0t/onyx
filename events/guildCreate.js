@@ -49,11 +49,11 @@ module.exports = (client, guild) => {
     let invite = new disbut.MessageButton()
       .setStyle('url')
       .setLabel('Invite Me') 
-      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`);
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot`);
       let support = new disbut.MessageButton()
       .setStyle('url')
       .setLabel('Support Server') 
-      .setURL(`https://discord.gg/snow-team`);
+      .setURL(`https://discord.gg/AP4DHe7HAC`);
 
       return guild.owner.send(embed,{
         button: [support,invite],
