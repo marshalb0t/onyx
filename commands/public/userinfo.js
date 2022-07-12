@@ -22,8 +22,8 @@ const args = message.content.split(' ');
     let id1 = `https://images-ext-1.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif`
 const mention = message.mentions.users.first() || message.author;
             let embed = new Discord.MessageEmbed() 
-.addField('**Joined Discord :**', `**${moment(mention.createdTimestamp).format('YYYY/MM/DD HH:mm')}**`)
-.addField('**Joined Server :**', `**${moment(mention.joinedTimestamp).format('YYYY/MM/DD HH:mm')}**`)
+.addField('**Joined Discord :**', `__${moment(mention.createdTimestamp).format('YYYY/MM/DD HH:mm')}__`)
+.addField('**Joined Server :**', `__${moment(mention.joinedTimestamp).format('YYYY/MM/DD HH:mm')}__`)
 .setColor(color)
 .setThumbnail(`${mention.avatarURL()}` , ({format : "png" , dynamic : true , size : "1024"}))
 .setAuthor(`${message.author.username}`, `${message.author.avatarURL({dynamic:true})}`)
