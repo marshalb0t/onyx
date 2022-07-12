@@ -1,24 +1,24 @@
-const Discord = require("discord.js");
-const language = "en"
-const db = require("quick.db")
-/////كود سرعة البوت او البينق
-module.exports = {
-    name: "ping",
-    description: "show bot ping",
-  guildOnly: true,
-    run: async (client, message, args) => {
-      
-            
-      
-      if (!message.channel.guild) return;
-    if (message.author.bot) return;
-    if (!message.channel.guild) return;
-    var ping = `${Math.round(client.ws.ping)}`;
+const { MessageEmbed } = require("discord.js");
+const { lineReply } = require("discord-reply");
+const { color } = require("../../config.json");
 
-    const E1ping = new Discord.MessageEmbed()
-.setAuthor(`${message.author.username}`, `${message.author.avatarURL({dynamic:true})}`)
-    .setDescription(` \`\`\`BOT Ping Is : ${ping} \`\`\` `)
-      .setColor("9e1c36");
-    message.channel.send(E1ping);
-  }
-}
+module.exports = {
+  name: "ping",
+  aliases: ["Ping"],
+  description: "the Ping value",
+  usage: "ping",
+    run: async (client, message, args) => {
+
+        const embed = new MessageEmbed()
+            .setTitle("Ping Bot")
+            .setDescription(`**Ping value**: ${client.ws.ping} ms`)
+
+        if (client.ws.ping < 60) embed.setColor(color)
+        else if (client.ws.ping > 60 && client.ws.ping < 120) embed.setColor(color)
+        else if (client.ws.ping > 120) embed.setColor(color)
+
+
+        message.lineReplyNoMention(embed);
+
+    }
+};
