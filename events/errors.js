@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
-module.exports.run = async (client, message) => {
+module.exports = (client, message) => {     
+
     console.error()
     const errorch = '994335174005366785'
     const channel = client.channels.cache.get(errorch);
