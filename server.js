@@ -41,7 +41,9 @@ fs.readdir(`./commands/${Category}`, (err, files) => {
     let commandName = file.split(".")[0];
     console.log(`Attempting to load command | Category : ${Category} | Command : ${commandName}`);
     client.commands.set(commandName, props);
-  });
+  })
+});
+});
 
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
