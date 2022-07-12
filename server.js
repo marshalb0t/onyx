@@ -6,7 +6,8 @@ const passport = require("passport");
 const session = require("express-session");
 const Strategy = require("passport-discord").Strategy;
 const ejs = require("ejs");
-var fs = require("fs")
+const { readdirSync } = require(`fs`);
+const fs = require("fs");
 const Welcomer = require("./models/welcomer.js");
 const Autorole = require("./models/autorole.js");
 const Log = require("./models/log.js");
@@ -31,19 +32,8 @@ mongoose.connect(config.database2 ,{ useNewUrlParser: true, useUnifiedTopology: 
 
 
 client.commands = new Discord.Collection();
-const Categories = ["moderation", "public", "owner", "fun", "gif", "text", "emote", "invites"];
-
-Categories.forEach(async function(Category, message) {
-fs.readdir(`./commands/${Category}`, (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${Category}/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command | Category : ${Category} | Command : ${commandName}`);
-    client.commands.set(commandName, props);
-  })
-});
+["command"].forEach((handler) => {
+  require(`./handlers/${handler}`)(client);
 });
 
 fs.readdir("./events/", (err, files) => {
