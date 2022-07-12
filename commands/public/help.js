@@ -52,11 +52,11 @@ module.exports = {
         .setFooter('4th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
-       let GIF = ["boy", "anime", "girl", "couple", "emoji", "baby"]
+       let gifs = ["boy", "anime", "girl", "couple", "emoji", "baby"]
         const embed4 = new Discord.MessageEmbed()
         .setTitle("❯ Gif Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${GIF.length}]`, `\`boy\`, \`girl\`, \`anime\`, \`animal\`, \`couple\`, \`emoji\`, \`baby\``)
+        .addField("Availby Commands: "+`[${gifs.length}]`, `\`boy\`, \`girl\`, \`anime\`, \`animal\`, \`couple\`, \`emoji\`, \`baby\``)
         .setColor(Color)
         .setFooter('5th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
@@ -71,7 +71,7 @@ module.exports = {
         .setFooter('6th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
  
-        let emo = ["add-emoji", "add-these", "emojiinfo", ",emojis-list", "emojistats", "emojis", "jumbo", "remove-emoji", "remove-these", "rename-emoji"]
+        let emo = ["add-emoji", "add-these", "emojiinfo", "emojis-list", "emojistats", "emojis", "jumbo", "remove-emoji", "remove-these", "rename-emoji"]
         const embed7 = new Discord.MessageEmbed()
         .setTitle("❯ Emote Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
