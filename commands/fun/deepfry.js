@@ -1,6 +1,6 @@
 const fetch = require("node-fetch")
 const { MessageEmbed, MessageMentions } = require('discord.js')
-const { color } = require("../../config.js");
+const { color } = require("../../config.json");
 const { lineReply } = require("discord-reply");
 
 module.exports = {
