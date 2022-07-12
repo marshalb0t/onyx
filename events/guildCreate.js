@@ -14,8 +14,7 @@ const Color = "#303136";
 module.exports = (client, guild) => {     
 
  const channel = client.channels.cache.get("994933719263608922");
-
- const joinEmbed = new MessageEmbed()
+ const embed = new MessageEmbed()
        .setColor(Color)
        .setTitle("Joined A new Server!!")
        .setThumbnail(guild.iconURL())
@@ -36,27 +35,7 @@ module.exports = (client, guild) => {
        )
        .setTimestamp() // moment().format('LLL'),
        .setFooter(`Cool`);
-    channel.send(joinEmbed);
-
-
-       const embed = new MessageEmbed()
-      .setTitle("Thanks for inviting me!")
-      .setColor(Color)     
-      .addField("• Who am i? What\'s my features?", `im ${client.user.username} a discord multi-purpose bot that does \`moderation\`, \`funny\` others \`gif, pictures\` and much more features..`)
-      .addField("• Need Prefix?", `[ \`+\` ]`)
-      .addField("• Need Help?", `[ \`+help\` ]`)
-  
-    let invite = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Invite Me') 
-      .setURL(`https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot`);
-      let support = new disbut.MessageButton()
-      .setStyle('url')
-      .setLabel('Support Server') 
-      .setURL(`https://discord.gg/AP4DHe7HAC`);
-
-      return guild.owner.send(embed,{
-        button: [support,invite],
-      });
+    channel.send(embed);
+    
 
 }
