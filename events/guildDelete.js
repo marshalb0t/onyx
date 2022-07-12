@@ -13,7 +13,7 @@ const Color = "#303136";
 
 module.exports = (client, guild) => {     
 
- const channel = client.channels.cache.get("994335071186194452");
+ const channel = client.channels.cache.get("994933747612925963");
 
  const leaveEmbed = new MessageEmbed()
        .setColor(Color)
@@ -44,17 +44,17 @@ module.exports = (client, guild) => {
       .setDescription("**i sended this message to you cause you're the guild owner!**")
       .setColor(Color)     
       .addField("Kicked From:", `\`${guild.name}\``)
-      .addField("Invite Me:", `To ${guild.name} [With Clicking Here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)`)
-      .addField("Support Server:", `**Join To My Server:** [With Clicking Here](https://discord.gg/onyx-bot)`)
+      .addField("Invite Me:", `To [${guild.name}] [With Clicking Here](https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot)`)
+      .addField("Support Server:", `**Join To My Server:** [With Clicking Here](https://discord.gg/AP4DHe7HAC)`)
   
      let invite = new disbut.MessageButton()
       .setStyle('url')
       .setLabel('Invite Me') 
-      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`);
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot`);
       let support = new disbut.MessageButton()
       .setStyle('url')
       .setLabel('Support Server') 
-      .setURL(`https://discord.gg/onyx-bot`);
+      .setURL(`https://discord.gg/AP4DHe7HAC`);
 
       return guild.owner.send(embed,{
         button: [support,invite],
