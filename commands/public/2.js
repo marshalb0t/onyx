@@ -1,179 +1,111 @@
-const {
-    MessageEmbed,
-    Message,
-    Client
-} = require("discord.js");
-const db = require('quick.db');
-const {
-    readdirSync
-} = require("fs");
-let color = "#36393f";
+const { MessageEmbed, Client, Message } = require("discord.js");
+const { readdirSync } = require("fs");
+const color = "#303136";
 
 module.exports = {
-    name: "2",
-    aliases: ['21'],
-    description: "Shows all available bot commands.",
-    /**
-     * 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String} args 
-     * @returns 
-     */
-    run: async (client, message, args) => {
-        if (!args[0]) {
-            let categories = [];
+  name: "2",
+  aliases: ["h"],
+  description: "Shows all available bot commands.",
 
+  /**
+   * 
+   * @param {Client} client 
+   * @param {Message} message 
+   * @param {String[]} args 
+   * @returns 
+   */
+  run: async (client, message, args) => {
 
-            //categories to ignore
-            let ignored = [
-              'owner'
-            ];
+    if (!args[0]) {
+      let categories = [];
 
-            const emo = {
-              protection: "❌",
-              photo: "✅",
-              gif: "❌",
-              public: "✅",
-              moderation: "❌",
-              invites: "✅",
-              emote: "❌",              
-              text: "❌"
-            }
+      readdirSync("./commands/").forEach((dir) => {
+        if(dir === "owner") return
+        const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
+          file.endsWith(".js")
+        );
 
-            readdirSync("./commands/").forEach((dir) => {
-                if (ignored.includes(dir.toLowerCase())) return;
-                const name = `${emo[dir.toLowerCase()]} ${dir.toUpperCase()}`
-                let cats = new Object();
+        const cmds = commands.map((command) => {
+          let file = require(`../../commands/${dir}/${command}`);
 
-                cats = {
-                    name: name,
-                    value: `\`+help ${dir.toLowerCase()}\``,
-                    inline: true
-                }
+          if (!file.name) return "No command name.";
 
+          let name = file.name.replace(".js", "");
 
-                categories.push(cats);
-                //cots.push(dir.toLowerCase());
-            });
+          return `\`${name}\``;
+        });
 
-            const embed = new MessageEmbed()
-                .setTitle("Help Menu")
-                .setDescription(
-                    `\`\`\`js\nTo get help with each category, you can enter +help [category]\nParameters: <> = required, [] = optional\`\`\`\n[\`Support Server\`](https://discord.gg/9R7hZtbnyw) | [\`Invite me\`](https://discord.com/oauth2/authorize?client_id=842036225530396672&scope=bot&permissions=8589934591)\n\n__**Categories**__`
-                )
-                .addFields(categories)
-                .setFooter(
-                    `Total Of: ${client.commands.size} Commands`,
-                    message.author.displayAvatarURL({
-                        dynamic: true
-                    })
-                )
-                .setTimestamp()
-                .setThumbnail(client.user.displayAvatarURL({
-                    dynamic: true
-                }))               
-                .setColor(color);
+        let data = new Object();
 
+        data = {
+          name: dir.toUpperCase(),
+          value: cmds.length === 0 ? "In progress." : cmds.join(" "),
+        };
 
-            return message.channel.send(embed);
-        } else {
-            let cots = [];
-            let catts = [];
+        categories.push(data);
+      });
 
-            readdirSync("./commands/").forEach((dir) => {
-                if (dir.toLowerCase() !== args[0].toLowerCase()) return;
-                const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
-                    file.endsWith(".js")
-                );
+      const embed = new MessageEmbed()
+        .setTitle("📬 Need help? Here are all of my commands:")
+        .addFields(categories)
+        .setDescription(
+          `Use \`+help\` followed by a command name to get more additional information on a command. For example: \`+help ban\`.`
+        )
+        .setFooter(
+          `Requested by ${message.author.tag}`,
+          message.author.displayAvatarURL({ dynamic: true })
+        )
+        .setTimestamp()
+        .setColor(color);
+      return message.channel.send(embed);
+    } else {
+      const command =
+        client.commands.get(args[0].toLowerCase()) ||
+        client.commands.find(
+          (c) => c.aliases && c.aliases.includes(args[0].toLowerCase())
+        );
 
+      if (!command) {
+        const embed = new MessageEmbed()
+          .setTitle(
+            `Invalid command! Use \`+help\` for all of my commands!`
+          )
+          .setColor(color);
+        return message.channel.send(embed);
+      }
 
-                const cmds = commands.map((command) => {
-                    let file = require(`../../commands/${dir}/${command}`);
-
-                    if (!file.name) return "Unnamed";
-
-                    let name = file.name.replace(".js", "");
-
-                    let des = client.commands.get(name).description;
-
-                    let obj = {
-                        cname: `\`${name}\``,
-                        des
-                    }
-
-                    return obj;
-                });
-
-                let dota = new Object();
-
-                cmds.map(co => {
-                    dota = {
-                        name: `${cmds.length === 0 ? "In progress." : co.cname}`,
-                        value: co.des ? co.des : 'No Description',
-                        inline: true,
-                    }
-                    catts.push(dota)
-                });
-
-                cots.push(dir.toLowerCase());
-            });
-
-            console.log(cots);
-
-            const command =
-                client.commands.get(args[0].toLowerCase()) ||
-                client.commands.find(
-                    (c) => c.aliases && c.aliases.includes(args[0].toLowerCase())
-                );
-
-            if (cots.includes(args[0].toLowerCase())) {
-                const combed = new MessageEmbed()
-                    .setTitle(`__${args[0].charAt(0).toUpperCase() + args[0].slice(1)} Commands!__`)
-                    .setDescription(`Use \`+help\` followed by a command name to get more information on a command.\nFor example: \`+help ping\`.\n\n`)
-                    .addFields(catts)
-                    .setColor(color)
-
-                return message.channel.send(combed)
-            }
-
-            if (!command) {
-                return sendError(`Invalid Command/Category! To see all of my commands, you can just do \`+help\``, message.channel);
-            }
-
-            const embed = new MessageEmbed()
-                .setTitle("Command Details:")
-                .addField(
-                    "Command:",
-                    command.name ? `\`${command.name}\`` : "No name for this command."
-                )
-                .addField(
-                    "Aliases:",
-                    command.aliases ?
-                    `\`${command.aliases.join("` `")}\`` :
-                    "No aliases for this command."
-                )
-                .addField(
-                    "Usage:",
-                    command.usage ?
-                    `\`+${command.name} ${command.usage}\`` :
-                    `\`+${command.name}\``
-                )
-                .addField(
-                    "Command Description:",
-                    command.description ?
-                    command.description :
-                    "No description for this command."
-                )
-                .setFooter(
-                    `Requested by ${message.author.tag}`,
-                    message.author.displayAvatarURL({
-                        dynamic: true
-                    })
-                )
-                .setTimestamp()
-                .setColor(color);
-            return message.channel.send(embed);
-        }
-    },
+      const embed = new MessageEmbed()
+        .setTitle("Command Details:")
+        .addField("PREFIX:", `\`+\``)
+        .addField(
+          "COMMAND:",
+          command.name ? `\`${command.name}\`` : "No name for this command."
+        )
+        .addField(
+          "ALIASES:",
+          command.aliases
+            ? `\`${command.aliases.join("` `")}\``
+            : "No aliases for this command."
+        )
+        .addField(
+          "USAGE:",
+          command.usage
+            ? `\`+${command.name} ${command.usage}\``
+            : `\`+${command.name}\``
+        )
+        .addField(
+          "DESCRIPTION:",
+          command.description
+            ? command.description
+            : "No description for this command."
+        )
+        .setFooter(
+          `Requested by ${message.author.tag}`,
+          message.author.displayAvatarURL({ dynamic: true })
+        )
+        .setTimestamp()
+        .setColor(color);
+      return message.channel.send(embed);
+    }
+  },
 };
