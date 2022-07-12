@@ -169,24 +169,12 @@ module.exports = {
         .setMaxValues(1)
         .setMinValues(1)
         .addOptions(home, option1, option2, option3, gif, pic, text, emote, link)
-       
-
-    let btn1 = new MessageButton()
-        .setStyle("url")
-        .setLabel(`Invite Me`)
-        .setURL(`https://discord.com/api/oauth2/authorize?client_id=779058251311874088&permissions=8&scope=bot`);
-
-      let bt2 = new MessageButton()
-        .setStyle("url")
-        .setLabel(`Support Server`)
-        .setURL(`https://discord.gg/onyx-bot`);
-
-      let btnarr = [btn1, btn2];
+      
         //-----------------------------OPTIONS----------------------
 
-    const Sendmenu = await message.channel.send(embed, select, btnarr);
+    const Sendmenu = await message.channel.send(embed, select);
     const filter = ( button ) => message.guild;
-    let collector = Sendmenu.createMenuCollector(filter, { time : 180000 });
+    let collector = Sendmenu.createMenuCollector(filter, { time : 150000 });
     collector.on("collect", (b, menu) => {
       if(b.clicker.id !== message.author.id) return b.reply.send(`:x: <@${b.clicker.id}> you can't use that!`, true)
         if(b.values[0] == "option1") {
