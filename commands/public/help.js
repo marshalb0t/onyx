@@ -167,7 +167,7 @@ module.exports = {
         .setPlaceholder('Select Help Menu!')
         .setMaxValues(1)
         .setMinValues(1)
-        .addOptions(home, option1, option2, option3, gif, pic, text, link)
+        .addOptions(home, option1, option2, option3, gif, pic, text, emote, link)
        
 
         //-----------------------------OPTIONS----------------------
