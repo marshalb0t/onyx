@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const {MessageEmbed} = require ("discord.js");
 const fetch = require ("node-fetch");
 const { lineReply } = require("discord-reply");
-const { color } = require("../../config.js");
+const { color } = require("../../config.json");
 
 module.exports = {
   name: "Dance",
