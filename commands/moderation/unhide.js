@@ -2,8 +2,8 @@ const { MessageEmbed } = require("discord.js")
 const { color } = require("../../config.json");
 
 module.exports = {
-  name: "unlock",
-  aliases: ["unlockchannel"],
+  name: "unhide",
+  aliases: ["unhidechannel"],
   description: "unlocking one of server channels",
   usage: "unlock",
   run: async (client, message, args) => {
