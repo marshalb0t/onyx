@@ -41,8 +41,7 @@ module.exports = {
         .addField("UnHider:", `${message.author.tag}`, true)
         .addField("Reason:", `${reason}`, true)
         .setColor(color)
-        .setTimestamp()   
-        message.react("")      
+        .setTimestamp()                
         message.channel.send(embed);
 
     }
