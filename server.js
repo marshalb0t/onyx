@@ -50,36 +50,4 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-
-client.on("guildCreate", guild => {
-  let channel = client.channels.cache.get("994933719263608922");
-  let embed = new MessageEmbed().setColor("#116d56")
-  .setThumbnail(guild.iconURL({ dynamic: true }) ? guild.iconURL({ dynamic: true }) : `https://guild-default-icon.herokuapp.com/${encodeURIComponent(guild.nameAcronym)}`)
-  .setAuthor(client.user.username, client.user.avatarURL())
-  .setTitle(`added to server`)
-  .addField("**Server Name**", `${guild.name}`)
-  .addField("**Server Owner**", `${guild.owner}`)
-  .addField("**Server Id**", `${guild.id}`)
-  .addField("**Member Count**", `${guild.memberCount}`)
-  .addField("**Verification Level**", `${guild.verificationLevel}`)
-  .setFooter(`${client.user.tag}`);
-  channel.send(embed);
-});
-
-client.on("guildDelete", guild => {
-  let channel = client.channels.cache.get("994933747612925963");
-  let embed = new MessageEmbed()
-  .setColor("#116d56")
-  .setAuthor(client.user.username, client.user.avatarURL())
-  .setTitle( `❌ Left Server`)
-  .addField(" **Server Name**", `${guild.name}`)
-  .addField(" **Server Owner**", `${guild.owner}`)
-  .addField(" **Server Id**", `${guild.id}`)
-  .addField(" **Member Count**", `${guild.memberCount}`)
-  .addField(" **Verification Level**", `${guild.verificationLevel}`)
-  .setFooter(`${client.user.tag}`);
-  channel.send(embed);
-});
-
-
 client.login(config.TOKEN);
