@@ -17,7 +17,7 @@ module.exports = (client, guild) => {
        .setThumbnail(guild.iconURL())
        .addField(
          "Guild:",
-         `i just joined to here **${guild.name}**.\n\nThere is **${guild.memberCount}** members`,
+         `i just joined to here **${guild.name}**.\n\nGuild Members: [**${guild.memberCount}**]`,
          true
        )
        .addField(
