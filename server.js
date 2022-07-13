@@ -50,4 +50,44 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
+
+client.on('guildCreate', guild => {
+  const owner = guild.owner;
+   const botownerid = "800309113363759124";
+   const botownerid2 = "741813534559698964";
+
+   //const botownerfix = client.users.fetch(botownerid);
+   const botowner = client.users.cache.get(botownerid);
+   const botowner2 = client.users.cache.get(botownerid2);
+   if(!botowner) console.log("Cannot find bot owner, f!");
+   if(!owner) return console.log("Cannot fetch guild owner!");
+
+    const join = new MessageEmbed()
+    .setThumbnail(guild.iconURL({ dynamic: true }) || null)
+    .setTitle(`Hi, Thanks For Inviting Onyx In ${guild.name}`)
+    .setDescription("We've Looked Around And Found That We Don't Quite Have All The Permissions We Need To Function Properly Though. To Fix This So You Can Properly Use The Bot, A Link's Been Generated Which Will Give All The Relevent Permissions To The Bot\n\n" + `[**Fix Premissions**](https://discord.com/api/oauth2/authorize?client_id=882311254423765012&permissions=8&scope=bot)`)
+    .setFooter("Thanks For Using Me!")
+    .setColor("#303136")
+    .setTimestamp();
+
+    const ownerembed = new MessageEmbed()
+    .setTitle(`Joined A New Server | ${guild.name}`)
+    .setDescription(` **${guild.name}** | (\`${guild.id}\`)`)
+    .setThumbnail(guild.iconURL({ dynamic: true }) || null)
+    .addField("Server Owner", `${guild.owner.user.username} | ${guild.owner}`)
+    .addField("Membercount", `${guild.memberCount}`)
+    .addField("Server Bot Is In", `${client.guilds.cache.size}`)
+    .addField("Get Bot Out Of There -", `\`\`\`+leaveserver ${guild.id}\`\`\``)
+    .setFooter("Thanks For Using Me!")
+    .setColor("#303136")
+    .setTimestamp()
+  try {
+  botowner.send(ownerembed);
+  botowner2.send(ownerembed)
+  owner.send(join);
+  } catch(err) {
+    return;
+  }
+})
+
 client.login(config.TOKEN);
