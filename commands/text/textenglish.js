@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const english = require("../../json/textenglish.json")
+const english = require("../../json/en.json")
 
 module.exports = {
   name: "textenglish",
@@ -9,9 +9,9 @@ module.exports = {
   run: async (client, message, args) => {
 
 
-   let en = english.ad[Math.floor((Math.random() * english.en.length))];
+  let en = english.en[Math.floor((Math.random() * english.en.length))];
 
-    message.channel.send(`${en}`).then(message => {
+    message.channel.send(en).then(message => {
 			message.react('🥺').then(r => {
 				message.react('🖤');
            });
