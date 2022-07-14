@@ -15,6 +15,8 @@ module.exports = {
      * @param {String[]} args 
      */
     run: async (client, message, args, prefix) => {
+        if (message.author.id == message.guild.owner.id) return message.reply("Just The owner can use this command!")
+
         let text = args.slice(1).join(' ');
         let user = message.mentions.users.first() || message.guild.members.cache.get(args[0])
 
