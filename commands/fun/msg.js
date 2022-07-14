@@ -15,7 +15,10 @@ module.exports = {
      * @param {String[]} args 
      */
     run: async (client, message, args, prefix) => {
-        if (message.author.id == message.guild.owner.id) return message.reply("Just The owner can use this command!")
+        if (!message.member.hasPermission("ADMINISTRATOR"))
+        return message.channel
+          .send("I Dont Have Permissions")
+          .then(msg => msg.delete({ timeout: 5000 }));
 
         let text = args.slice(1).join(' ');
         let user = message.mentions.users.first() || message.guild.members.cache.get(args[0])
