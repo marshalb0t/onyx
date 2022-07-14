@@ -17,7 +17,7 @@ module.exports = {
     run: async (client, message, args, prefix) => {
         if (!message.member.hasPermission("ADMINISTRATOR"))
         return message.channel
-          .send("you Dont Have Permissions")
+          .send("**You Dont Have** `ADMINISTRATOR` **Permission**")
           .then(msg => msg.delete({ timeout: 5000 }));
 
         let text = args.slice(1).join(' ');
