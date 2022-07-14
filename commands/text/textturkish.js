@@ -2,12 +2,12 @@ const Discord = require("discord.js");
 const  turkish = require("../../JSON/tr.json")
 
 module.exports = {
-  name: "textpersian",
-  aliases: ["textPersian", "Textpersian", "TextPersian", "TEXTPERSIAN", "tp"],
+  name: "textturkish",
+  aliases: ["TextArabic", "Textarabic", "TEXTARABIC", "tt", ""],
   description: "Show text",
   usage: "text",
   run: async (client, message, args) => {
-
+	  
  let tr = turkish.tr[Math.floor((Math.random() * turkish.tr.length))];
 
     message.channel.send(tr).then(message => {
