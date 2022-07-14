@@ -73,13 +73,13 @@ module.exports = {
         .setFooter('6th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
       
-       let txt = ["textkurdish", "textarabic", "textpersian", "textturkish"]
+       let txt = ["textkurdish", "textenglish", "textarabic", "textpersian", "textturkish"]
   
         const embed6 = new Discord.MessageEmbed()
          .setTitle("❯ Text Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${txt.length}]`, `\`textkurdish, textarabic, textpersian, textturkish\``)
-        .addField("Aliases:", `\`tk, ta, tp, tt\``)
+        .addField("Availby Commands: "+`[${txt.length}]`, `\`textenglish, textkurdish, textarabic, textpersian, textturkish\``)
+        .addField("Aliases:", `\`te, tk, ta, tp, tt\``)
         .setColor(Color)
         .setFooter('7th Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
