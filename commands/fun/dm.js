@@ -29,11 +29,7 @@ module.exports = {
           });
         }
         if (user.user.bot == false) {
-          const embed = new MessageEmbed()
-            .setTitle("Message from " + message.member.user.username + " (ID: " + message.member.user.id + ")")
-            .setThumbnail(message.member.user.displayAvatarURL())
-            .setDescription('> ' + arguments + "\n\n[Original message](https://discord.com/channels/" + message.guild.id + "/" + message.channel.id + "/" + message.id + ")")
-          user.send(embed)
+          user.send(arguments)
           return message.channel.send({
             embed: {
               color: 4779354,
