@@ -25,7 +25,7 @@ module.exports = {
     .addField("ID:", `${r.id}`, true)
     .addField("Creation:", `${r.createdAt}`, true)
     .addField("Hex Color:", `${r.hexColor}`, true)
-    .addField("Members:", `${r.members || "No One"}`, true)
+    .addField("Members:", `${r.members}`, true)
     .addField("Permissions:", `${r.permissions.toArray().map(p=>`\`${p}\``).join(", ")}`)    
     message.channel.send(embed)
 
