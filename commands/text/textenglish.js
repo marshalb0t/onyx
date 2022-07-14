@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
-const english = require("../../JSON/textenglish.json")
+const english = require("../../json/textenglish.json")
 
 module.exports = {
   name: "textenglish",
