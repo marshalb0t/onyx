@@ -58,7 +58,7 @@ module.exports = {
       return message.channel.send({
         embed: {
           color: 16734039,
-          description: `Cant send this dm! Maybe user blocked their dm!`,
+          description: `Error`,
 
         },
       });
