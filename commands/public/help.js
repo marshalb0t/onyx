@@ -18,7 +18,7 @@ module.exports = {
         .addField("❯ Who am i? What\'s my features?", `im ${client.user.username} a discord multi-purpose bot that does \`moderation\`, \`funny\` others \`gif, pictures\` and much more features..`)
         .addField("❯ Commands:", `[ \`${client.commands.size}\` ] `)
         .addField("❯ Category:", `[ \`7\` ]`)
-        .addField("❯ Need Prefix?", `[ \`-\` ]`)
+        .addField("❯ Need Prefix?", `[ \`+\` ]`)
         .addField("❯ Need Commads?", `[ \`Select A Category!\` ]`)
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
