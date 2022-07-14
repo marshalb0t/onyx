@@ -3,7 +3,7 @@ const  turkish = require("../../JSON/tr.json")
 
 module.exports = {
   name: "textturkish",
-  aliases: ["TextArabic", "Textarabic", "TEXTARABIC", "tt", ""],
+  aliases: ["TextArabic", "Textarabic", "TEXTARABIC", "tt", "ttr"],
   description: "Show text",
   usage: "text",
   run: async (client, message, args) => {
