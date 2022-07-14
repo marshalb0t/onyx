@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const turkish= require("../../JSON/tr.json")
+const  turkish = require("../../JSON/tr.json")
 
 module.exports = {
   name: "textpersian",
@@ -8,7 +8,7 @@ module.exports = {
   usage: "text",
   run: async (client, message, args) => {
 
- let tr = turkish.tr[Math.floor((Math.random() * perisan.tr.length))];
+ let tr = turkish.tr[Math.floor((Math.random() * turkish.tr.length))];
 
     message.channel.send(tr).then(message => {
 			message.react('🥺').then(r => {
