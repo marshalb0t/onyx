@@ -1,26 +1,24 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const { color } = require("../../config.json");
-const { lineReply } = require("discord-reply");
+const pbanner = require("../../JSON/pb.json")
 
 module.exports = {
-  name: "Bboy",
-  aliases: ["bboy", "bannerBoy", "bBoy"],
+  name: "Pbanner",
+  aliases: ["pbanner", "rbanner", "bannerp"],
   description: "Show BannerPhoto",
   usage: "BannerPhoto",
   run: async (client, message, args) => {
    
-    let replies = [""]
-    let result = Math.floor((Math.random() * replies.length));
+    let pb = pbanner.pb[Math.floor((Math.random() * pbanner.pb.length))];
     
-    let photoembed = new Discord.MessageEmbed()
-
-    .setTitle("Boy Banner Photo")
+    let embed = new Discord.MessageEmbed()
+    .setTitle("Random Photo Banner")
     .setColor(color)
     .setFooter(`${message.author.tag} `, message.author.avatarURL)
-    .setImage(replies[result]);
+    .setImage(pb);
 
-    message.lineReplyNoMention(photoembed);
+    message.channel.send(embed);
 
    
   }
