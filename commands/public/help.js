@@ -44,12 +44,12 @@ module.exports = {
         .setFooter('second Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
-        let funs = ["baka", "clyde", "cuddle", "dance", "deepfry", "dicksize", "hug", "joke", "pat"]
+        let funs = ["baka", "clyde", "cuddle", "dance", "deepfry", "dicksize", "hug", "joke", "pat", "motivation"]
 
         const embed3 = new Discord.MessageEmbed()
         .setTitle("❯ Funny Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .addField("Availby Commands: "+`[${funs.length}]`, `\`baka, clyde, cuddle, dance, deepfry, dicksize, hug, joke, pat\``)
+        .addField("Availby Commands: "+`[${funs.length}]`, `\`baka, clyde, cuddle, dance, deepfry, dicksize, hug, joke, pat, motivation\``)
         .setColor(Color)
         .setFooter('third Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
