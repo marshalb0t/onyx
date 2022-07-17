@@ -23,7 +23,7 @@ module.exports = {
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .setFooter(`Requested By ${message.author.username}`)
-        .setFooter('First Page' , client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('Home Page' , client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         let public = ["avatar", "bot", "github", "help", "links", "ping", "roleinfo", "serverinfo", "userinfo"]
@@ -32,7 +32,7 @@ module.exports = {
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Availby Commands: "+`[${public.length}]`, `\`avatar, stats, github, help, links, ping, roleinfo, serverinfo, userinfo\``)
         .setColor(Color)
-        .setFooter('Second Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('First Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
       
         let mods = ["addrole", "ban", "bans", "channels", "channelinfo", "purge", "hide", "kick", "lock", "mute", "rmvrole", "role", "roles", "nick", "slowmode", "unban", "unhide", "unlock", "unmute", "vkick"]
@@ -41,7 +41,7 @@ module.exports = {
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Availby Commands: "+`[${mods.length}]`, `\`addrole, ban, bans, channels, channelinfo, purge, hide, kick, lock, mute, rmvrole, role, roles, nick, slowmode, unban, unhide, unlock, unmute, vkick\``)
         .setColor(Color)
-        .setFooter('Third Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('second Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         let funs = ["baka", "clyde", "cuddle", "dance", "deepfry", "dicksize", "hug", "joke", "pat"]
@@ -51,7 +51,7 @@ module.exports = {
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Availby Commands: "+`[${funs.length}]`, `\`baka, clyde, cuddle, dance, deepfry, dicksize, hug, joke, pat\``)
         .setColor(Color)
-        .setFooter('4th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('third Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
        let gifs = ["boy", "anime", "girl", "couple", "emoji", "baby"]
@@ -60,7 +60,7 @@ module.exports = {
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Availby Commands: "+`[${gifs.length}]`, `\`boy\`, \`girl\`, \`anime\`, \`animal\`, \`couple\`, \`emoji\`, \`baby\``)
         .setColor(Color)
-        .setFooter('5th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('fourth Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
         
         let pics = ["pboy", "pgirl", "panimal", "pbaby", "pemoji"]
@@ -70,7 +70,7 @@ module.exports = {
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Availby Commands: "+`[${pics.length}]`, `\`pboy\`, \`pgirl\`, \`panimal\`, \`pbaby\`, \`pemoji\``)
         .setColor(Color)
-        .setFooter('6th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('fiveth Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
       
        let txt = ["textkurdish", "textenglish", "textarabic", "textpersian", "textturkish"]
@@ -81,7 +81,7 @@ module.exports = {
         .addField("Availby Commands: "+`[${txt.length}]`, `\`textenglish, textkurdish, textarabic, textpersian, textturkish\``)
         .addField("Aliases:", `\`te, tk, ta, tp, tt\``)
         .setColor(Color)
-        .setFooter('7th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('sixth Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         let emo = ["add-emoji", "add-these", "emojiinfo", "emojis-list", "emojistats", "emojis", "jumbo", "remove-emoji", "remove-these", "rename-emoji"]
@@ -91,7 +91,7 @@ module.exports = {
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Availby Commands: "+`[${emo.length}]`, `\`‌add-emoji, add-these, emoji-info, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji\``)
         .setColor(Color)
-        .setFooter('8th Page', client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('seventh Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         const expired = new Discord.MessageEmbed()
