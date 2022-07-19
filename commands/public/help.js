@@ -15,11 +15,13 @@ module.exports = {
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed()
         .setAuthor(message.author.username, message.author.avatarURL({dynamic:true})) 
-        .setDescription(`**❯ You have to choose one of this category**(s)\n\n🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote`)
+        .setDescription(`**❯ You have to choose one of this category**(s)\n🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote`)
+        .addField("Invite Link:", `[Click Here](https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot)`)
+        .addField("Support Link:", `[Click Here](https://discord.gg/AP4DHe7HAC)`)
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .setFooter(`Requester: ${message.author.username}`)
-        .setFooter('Home Page' , client.user.displayAvatarURL({ dynamic: true}))
+        .setFooter('Home Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         let public = ["avatar", "bot", "github", "help", "links", "ping", "roleinfo", "serverinfo", "userinfo"]
@@ -97,14 +99,6 @@ module.exports = {
         .setColor(Color)      
         .setTimestamp()
         
-        let links = new Discord.MessageEmbed()          
-       .setColor(Color)
-       .setTitle("❯ Links")
-       .addField("Invite Link:", `[Click Here](https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot)`)
-       .addField("Support Link:", `[Click Here](https://discord.gg/AP4DHe7HAC)`)
-       .setFooter('Last Page' , client.user.displayAvatarURL({ dynamic: true}))
-      .setTimestamp()
-      .setColor(Color)
       
         //-----------------------------OPTIONS----------------------
 
@@ -156,19 +150,13 @@ module.exports = {
         .setValue('emote')
         .setDescription('Click To see Emote Commands!')
 
-        let link = new MessageMenuOption()
-        .setLabel('Links!')
-        .setEmoji("🔗")
-        .setValue("link")
-        .setDescription('Important Links')
-
 
     let select = new MessageMenu()
         .setID('selector')
         .setPlaceholder('Please Select Category!')
         .setMaxValues(1)
         .setMinValues(1)
-        .addOptions(home, option1, option2, option3, gif, pic, text, emote, link)
+        .addOptions(home, option1, option2, option3, gif, pic, text, emote)
       
         //-----------------------------OPTIONS----------------------
 
@@ -207,9 +195,6 @@ module.exports = {
 
         if(b.values[0] == "home") {
           Sendmenu.edit(embed, select, true)
-        }
-        if(b.values[0] == "link") {
-          Sendmenu.edit(links, select)
         }
 
         b.reply.defer();
