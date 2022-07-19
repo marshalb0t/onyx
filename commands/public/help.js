@@ -13,7 +13,13 @@ module.exports = {
   run: async (client, message, args ) => {
     const prefix = db.get(`guild_${message.guild.id}_prefix`) || '+';
       //--------------------------------------S T A R T---------------------------------------
-       
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(message.author.username, message.author.avatarURL({dynamic:true}))
+        .addField("Choose a Category:", `🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote`)     
+        .setColor(Color)        
+        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
+        .setTimestamp()
+
         let public = ["avatar", "bot", "github", "help", "links", "ping", "roleinfo", "serverinfo", "userinfo"]
         const embed1 = new Discord.MessageEmbed()
         .setTitle("❯ General Category:")
@@ -120,7 +126,13 @@ module.exports = {
         .setLabel('Photo')
         .setEmoji('🖼️')
         .setValue('pic')
-        .setDescription('Click To see pic Commands!!')      
+        .setDescription('Click To see pic Commands!!')
+
+        let home = new MessageMenuOption()
+        .setLabel('Home')
+        .setEmoji('🏠')
+        .setValue('home')
+        .setDescription('Return To Home')
 
         let text = new MessageMenuOption()
         .setLabel('Text')
@@ -144,7 +156,7 @@ module.exports = {
       
         //-----------------------------OPTIONS----------------------
 
-    const Sendmenu = await message.channel.send(`<@${message.author.id}>`, select);
+    const Sendmenu = await message.channel.send(embed, select);
     const filter = ( button ) => message.guild;
     let collector = Sendmenu.createMenuCollector(filter, { time : 150000 });
     collector.on("collect", (b, menu) => {
@@ -175,6 +187,10 @@ module.exports = {
 
         if(b.values[0] == "emote") {
           Sendmenu.edit(embed7, select)
+        }
+
+        if(b.values[0] == "home") {
+          Sendmenu.edit(embed, select, true)
         }
 
         b.reply.defer();
