@@ -15,14 +15,9 @@ module.exports = {
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed()
         .setAuthor(message.author.username, message.author.avatarURL({dynamic:true}))
-        .setDescription(`❯ Choose a Category:\n\n\n🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote`)
-        .addField("Prefix:", `${prefix}`)
-        .addField("Links:", `[Invite Me](https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot) - [Onyx Server](https://discord.gg/AP4DHe7HAC)`)
-        .addField("Commands:", `${client.commands.size}`)   
+        .addField("> Choose a Category:", `**> 🌐 | General\n> ⚙️ | Moderation\n> 🐸 | Funny\n> 🌀 | Gif\n> 🖼️ | Photos\n> 🖋️ | Text\n> 🎈 | Emote**`)     
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .setFooter(`Requester: ${message.author.username}`)
-        .setFooter('Home Page', client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         let public = ["avatar", "bot", "github", "help", "links", "ping", "roleinfo", "serverinfo", "userinfo"]
