@@ -15,7 +15,7 @@ module.exports = {
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed()
         .setAuthor(message.author.username, message.author.avatarURL({dynamic:true}))
-        .addField("> Choose a Category:", `🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote`)     
+        .addField("Choose a Category:", `**🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote**`)     
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
