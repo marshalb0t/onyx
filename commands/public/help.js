@@ -13,9 +13,8 @@ module.exports = {
   run: async (client, message, args ) => {
     const prefix = db.get(`guild_${message.guild.id}_prefix`) || '+';
       //--------------------------------------S T A R T---------------------------------------
-        const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.username, message.author.avatarURL({dynamic:true}))
-        .setDescription(`**🗂️ • Choose a Category:**\n\n🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote`)        
+        const embed = new Discord.MessageEmbed()       
+        .setTitle("Choose a category!")    
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
