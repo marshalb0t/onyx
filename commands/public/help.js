@@ -14,10 +14,8 @@ module.exports = {
     const prefix = db.get(`guild_${message.guild.id}_prefix`) || '+';
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.username, message.author.avatarURL({dynamic:true})) 
-        .setDescription(`**❯ You have to choose one of this category**(s)\n🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote`)
-        .addField("Invite Link:", `[Click Here](https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot)`)
-        .addField("Support Link:", `[Click Here](https://discord.gg/AP4DHe7HAC)`)
+ .setAuthor(message.author.username, message.author.avatarURL({dynamic:true})) 
+.addField("❯ You have to choose one of this category(s)", `🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote\n\n[Invite Me](https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot)\n[Onyx Server]9https://discord.gg/AP4DHe7HAC]`)
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .setFooter(`Requester: ${message.author.username}`)
