@@ -14,15 +14,11 @@ module.exports = {
     const prefix = db.get(`guild_${message.guild.id}_prefix`) || '+';
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed()
-        .setTitle(`My Features`) 
-        .addField("❯ Who am i? What\'s my features?", `im ${client.user.username} a discord multi-purpose bot that does \`moderation\`, \`funny\` others \`gif, pictures\` and much more features..`)
-        .addField("❯ Commands:", `[ \`${client.commands.size}\` ] `)
-        .addField("❯ Category:", `[ \`7\` ]`)
-        .addField("❯ Need Prefix?", `[ \`+\` ]`)
-        .addField("❯ Need Commads?", `[ \`Select A Category!\` ]`)
+        .setAuthor(message.author.username, message.author.avatarURL({dynamic:true})) 
+        .setDescription(`**❯ You have to choose one of this category**(s)\n\n🌐 | General\n⚙️ | Moderation\n🐸 | Funny\n🌀 | Gif\n🖼️ | Photos\n🖋️ | Text\n🎈 | Emote`)
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-        .setFooter(`Requested By ${message.author.username}`)
+        .setFooter(`Requester: ${message.author.username}`)
         .setFooter('Home Page' , client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
@@ -66,7 +62,7 @@ module.exports = {
         let pics = ["pboy", "pgirl", "panimal", "pbaby", "pemoji"]
 
         const embed5 = new Discord.MessageEmbed()
-        .setTitle("❯ Picture Category:")
+        .setTitle("❯ Photo Category:")
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .addField("Availby Commands: "+`[${pics.length}]`, `\`pboy\`, \`pgirl\`, \`panimal\`, \`pbaby\`, \`pemoji\``)
         .setColor(Color)
@@ -137,7 +133,7 @@ module.exports = {
         .setDescription('Click To see gif Commands!!')
 
         let pic = new MessageMenuOption()
-        .setLabel('Picture')
+        .setLabel('Photo')
         .setEmoji('🖼️')
         .setValue('pic')
         .setDescription('Click To see pic Commands!!')
