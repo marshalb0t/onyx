@@ -1,7 +1,7 @@
 {
   "name": "TartOrchidObjects",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Idk what should i do say..",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
