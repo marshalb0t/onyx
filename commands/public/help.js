@@ -28,12 +28,12 @@ module.exports = {
       
     const support = new MessageButton()
     .setStyle('url')
-    .setURL('https://discord.gg/bwfsd4qfkn')
+    .setURL('https://discord.gg/AP4DHe7HAC')
     .setLabel('Support Server')
 
 const button = new MessageButton()
     .setStyle('url')
-    .setURL('https://discord.com/api/oauth2/authorize?client_id=800442243697213442&permissions=8&scope=bot')
+    .setURL('https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot')
     .setLabel('Invite Me')
  
  
