@@ -15,8 +15,7 @@ module.exports = {
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed() 
         .setColor(Color)                
-        .addField("Prefix:", `${prefix}`)
-        .addField("Infomration:", `Hello, Im ${client.user.username} a discord multi-purpose bot that does gif, photos, moderation and much more..! **select a cateory!**`)                   
+        .setDescription(`Hello`)
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
 
@@ -187,7 +186,7 @@ module.exports = {
         b.reply.defer();
 
     collector.on("end", (b) => {
-        Sendmenu.edit(`<@${message.author.id}>`, expired)
+        Sendmenu.edit(expired)
     })
     })
  //------------------------EVENT-----------------------------   
