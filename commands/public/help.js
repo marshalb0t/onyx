@@ -16,7 +16,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()       
         .setTitle("Help Menu/Home Page")  
         .addField("Prefix:", `${prefix}`)
-        .addField("Infomration", `Hello, Im ${client.user.username} a discord multi-purpose bot that does gif, photos, moderation and much more..! **select a cateory!**`)
+        .addField("Infomration:", `Hello, Im ${client.user.username} a discord multi-purpose bot that does gif, photos, moderation and much more..! **select a cateory!**`)
         .addField("Commands:", `${client.commands.size}`) 
         .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
