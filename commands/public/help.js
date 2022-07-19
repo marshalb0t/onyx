@@ -120,13 +120,7 @@ module.exports = {
         .setLabel('Photo')
         .setEmoji('🖼️')
         .setValue('pic')
-        .setDescription('Click To see pic Commands!!')
-
-        let home = new MessageMenuOption()
-        .setLabel('Home')
-        .setEmoji('🏠')
-        .setValue('home')
-        .setDescription('Return To Home')
+        .setDescription('Click To see pic Commands!!')      
 
         let text = new MessageMenuOption()
         .setLabel('Text')
