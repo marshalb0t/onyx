@@ -15,7 +15,7 @@ module.exports = {
     let embed = new MessageEmbed()
     .setColor(Color)
     .setAuthor(client.user.username)
-    .setDescription(`Use **${Prefix}help [command name]** For More Command Information! for example: **${Prefix}help ban**`)
+    .setDescription(`Use **+help [command name]** For More Command Information! for example: **+help ban**`)
     .addField("General:", `\`avatar, stats, github, help, links, ping, roleinfo, serverinfo, userinfo\``)
     .addField("Moderation:", `\`addrole, ban, bans, channels, channelinfo, purge, hide, kick, lock, mute, rmvrole, role, roles, nick, slowmode, unban, unhide, unlock, unmute, vkick\``)
     .addField("Emote:", `\`‌add-emoji, add-these, emoji-info, emojis-list, emojistats, emojis, jumbo, remove-emoji, remove-these, rename-emoji\``)
