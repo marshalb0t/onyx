@@ -3,7 +3,7 @@ const { Database } = require("quickmongo");
 const db = new Database(config.database);
    
    module.exports = async (client) =>{
-   client.user.setPresence({ activity: { name: `+help | @${client.user.username}`, type: "PLAYING" }, status: "online" });
+   client.user.setPresence({ activity: { name: `+help`, type: "PLAYING" }, status: "online" });
   await client.guilds.cache.forEach(async g =>{
     var Vch = await db.fetch(`Vonline_${g.id}`) 
     if(Vch){
