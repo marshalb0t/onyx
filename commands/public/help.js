@@ -14,9 +14,14 @@ module.exports = {
     const prefix = db.get(`guild_${message.guild.id}_prefix`) || '+';
       //--------------------------------------S T A R T---------------------------------------
         const embed = new Discord.MessageEmbed() 
-        .setColor(Color)                
-        .setDescription(`Hello`)
+         .setTitle(`HelpMenu`) 
+        .addField("• Who am i? What\'s my features?", `im ${client.user.username} a discord multi-purpose bot that does \`moderation\`, \`funny\` others \`gif, pictures\` and much more..`)
+        .addField("• Need Prefix?", `[ \`+\` ]`)
+        .addField("• Need Help?", `[ \`+help\` ]`)
+        .setColor(Color)        
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
+        .setFooter(`Requester: ${message.author.username}`)
+        .setFooter('Home Page' , client.user.displayAvatarURL({ dynamic: true}))
         .setTimestamp()
 
         const embed1 = new Discord.MessageEmbed()
@@ -139,7 +144,7 @@ module.exports = {
 
     let select = new MessageMenu()
         .setID('selector')
-        .setPlaceholder('Please Select Category!')
+        .setPlaceholder('Please Select a Category!')
         .setMaxValues(1)
         .setMinValues(1)
         .addOptions(home, option1, option2, option3, gif, pic, text, emote)
