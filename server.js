@@ -48,4 +48,4 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-client.login(config.TOKEN);
+client.login(config.TOKEN)
