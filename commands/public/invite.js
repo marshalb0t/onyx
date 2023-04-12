@@ -11,7 +11,7 @@ module.exports = {
   usage: "links",
   run: async (client, message, args) => {
   
-      let invite = new MessageButton().setStyle('url').setLabel('Invite Me').setURL('https://discord.com/api/oauth2/authorize?client_id=779007687245299724&permissions=8&scope=bot')
+      let invite = new MessageButton().setStyle('url').setLabel('Invite Me').setURL('https://discord.com/api/oauth2/authorize?client_id=865882229376548865&permissions=8&scope=bot')
       let support = new MessageButton().setStyle('url').setLabel('Support Server').setURL('https://discord.gg/AP4DHe7HAC')
      
       const allbuttons = [invite, support]
